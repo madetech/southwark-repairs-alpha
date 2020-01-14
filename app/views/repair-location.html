@@ -12,11 +12,11 @@
 
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
+      <form class="form" action="/repair-type-kitchen" method="post">
 
      {% from "govuk/components/radios/macro.njk" import govukRadios %}
 
     {{ govukRadios({
-      idPrefix: "repair-location",
       name: "repair-location",
       fieldset: {
         legend: {
@@ -27,22 +27,27 @@
       },
       items: [
         {
-          value: "kitchen",
-          text: "Kitchen"
+          value: "Kitchen",
+          text: "Kitchen",
+          id: "repair-location-kitchen",
+          checked: checked("repair-location", "Kitchen")
         },
         {
-          value: "bathroom",
-          text: "Bathroom"
+          value: "Bathroom",
+          text: "Bathroom",
+          id: "repair-location-bathroom",
+          checked: checked("repair-location", "Bathroom")
         },
         {
-          value: "elsewhere",
-          text: "Elsewhere in the property"
+          value: "Elsewhere",
+          text: "Elsewhere in the property",
+          id: "repair-description-elsewhere",
+          checked: checked("repair-description", "Elsewhere")
         }
       ]
     }) }}
 
 
-      <form class="form" action="/repair-type-kitchen" method="post">
         <button class="govuk-button" data-module="govuk-button">Continue</button>
 
       </form>

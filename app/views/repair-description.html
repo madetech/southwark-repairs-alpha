@@ -5,7 +5,7 @@
 {% endblock %}
 
 {% block beforeContent %}
-  <a class="govuk-back-link" href="/repair-type-kitchen">Back</a>
+  <a class="govuk-back-link" href="/repair-damp">Back</a>
 {% endblock %}
 
 {% block content %}
@@ -13,8 +13,86 @@
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
 
-      <h1 class="govuk-heading-xl">What is the problem in your kitchen?</h1>
+      <h1 class="govuk-heading-xl">Describe your problem in more detail</h1>
 
+      <form class="form" action="/summary" method="post">
+
+
+     {% from "govuk/components/radios/macro.njk" import govukRadios %}
+
+    {{ govukRadios({
+      name: "repair-description",
+      fieldset: {
+        legend: {
+          text: "Is your problem damp or mold?",
+          isPageHeading: true,
+          classes: "govuk-fieldset__legend--m" 
+        }
+      },
+      items: [
+        {
+          value: "Damp",
+          text: "Damp",
+          id: "repair-description-damp",
+          checked: checked("repair-description", "Damp")
+        },
+        {
+          value: "Mold",
+          text: "Mold",
+          id: "repair-description-mold",
+          checked: checked("repair-description", "Mold")
+        },
+        {
+          value: "Both",
+          text: "Both",
+          id: "repair-description-both",
+          checked: checked("repair-description", "Both")
+        },
+        {
+          value: "unsure",
+          text: "Not sure",
+          id: "repair-description-unsure",
+          checked: checked("repair-description", "Not sure")
+        }
+      ]
+    }) }}
+
+
+
+     {% from "govuk/components/radios/macro.njk" import govukRadios %}
+
+    {{ govukRadios({
+      name: "external-pipes",
+      fieldset: {
+        legend: {
+          text: "Are there any external pipes behind the wall?",
+          isPageHeading: true,
+          classes: "govuk-fieldset__legend--m" 
+        }
+      },
+      items: [
+        {
+          value: "Yes",
+          text: "Yes",
+          id: "external-pipes-yes",
+          checked: checked("external-pipes", "Yes")
+        },
+        {
+          value: "No",
+          text: "No",
+          id: "external-pipes-no",
+          checked: checked("repair-description", "No")
+        },
+        {
+          value: "Unsure",
+          text: "Not sure",
+          id: "external-pipes-unsure",
+          checked: checked("repair-description", "Unsure")
+        }
+      ]
+    }) }}
+
+    
       <div class="govuk-form-group">
   <label class="govuk-label" for="more-detail">
     Can you provide more detail?
@@ -41,7 +119,6 @@
         <li>at least 50KB and no more than 10MB</li>
 
       </ul>
-      <form class="form" action="/url/of/next/page" method="post">
         <button class="govuk-button" data-module="govuk-button">Continue</button>
 
       </form>
