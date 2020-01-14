@@ -6,7 +6,7 @@ const router = express.Router()
 // Route for following up prior repairs
 router.post("/prior-repair-answer", function(req, res) {
     if (req.session.data["prior-repair"] === "Yes") {
-      res.redirect("/special-diagnosis");
+      res.redirect("/last-report");
     } else {
       res.redirect("/repair-location");
     }
@@ -17,7 +17,7 @@ router.post("/prior-repair-answer", function(req, res) {
 
 router.post("/priority-repair-answer", function(req, res) {
     if (req.session.data["repair-emergency"] === "none-of-these") {
-      res.redirect("/repair-location");
+      res.redirect("/prior-repair");
     } else if (req.session.data["repair-emergency"] === "gas")  {
       res.redirect("/smell-gas");
     } else {
