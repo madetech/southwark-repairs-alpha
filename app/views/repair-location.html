@@ -1,0 +1,71 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  Question page
+{% endblock %}
+
+{% block beforeContent %}
+  <a class="govuk-back-link" href="/prior-repair">Back</a>
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+     {% from "govuk/components/radios/macro.njk" import govukRadios %}
+
+    {{ govukRadios({
+      idPrefix: "repair-location",
+      name: "repair-location",
+      fieldset: {
+        legend: {
+          text: "Where is the problem located?",
+          isPageHeading: true,
+          classes: "govuk-fieldset__legend--xl"
+        }
+      },
+      items: [
+        {
+          value: "kitchen",
+          text: "Kitchen"
+        },
+        {
+          value: "bathroom",
+          text: "Bathroom"
+        },
+        {
+          value: "elsewhere",
+          text: "Elsewhere in the property"
+        }
+      ]
+    }) }}
+
+
+      <form class="form" action="/repair-type-kitchen" method="post">
+        <button class="govuk-button" data-module="govuk-button">Continue</button>
+
+      </form>
+
+
+
+  </div>
+
+
+  <div class="govuk-grid-column-one-third">
+    <h4 class="govuk-heading-s">Address</h4>
+
+        <p>{{ data['address-postcode'] }}</p>
+
+        <p>{{ data['addresses'] }}</p>
+      
+        <p><a href="postcode">
+              Change
+        <span class="govuk-visually-hidden"> postcode</span>
+        </a><p>
+      </div>
+  
+
+</div>
+
+{% endblock %}

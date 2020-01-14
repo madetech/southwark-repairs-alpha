@@ -1,7 +1,7 @@
 {% extends "layout.html" %}
 
 {% block pageTitle %}
-  Start page example
+  Report a repair
 {% endblock %}
 
 {% block header %}
@@ -33,11 +33,16 @@
         {% if serviceName %} {{ serviceName }} {% endif %}
       </h1>
 
-    <p>[General information about the council's repair service and opening times.]</p>
-  <h3 class="govuk-heading-m">Report a gas leak</h3>
+    <p>We provide housing repairs for council tenants through this online service.</p>
 
+<div class="govuk-warning-text">
+  <span class="govuk-warning-text__icon" aria-hidden="true">!</span>
+  <strong class="govuk-warning-text__text">
+    <span class="govuk-warning-text__assistive">Warning</span>
+    If you can smell gas, please call the gas emergency number on: 0800 111 999.
+  </strong>
+</div>
 
-    <p>If you can smell gas, please call the gas emergency number on: 0800 111 999</p>
 
     <details class="govuk-details" data-module="govuk-details">
       <summary class="govuk-details__summary">
@@ -50,7 +55,7 @@
   </div>
 </details>
 
-      <a href="#" role="button" draggable="false" class="govuk-button govuk-button--start govuk-!-margin-top-2 govuk-!-margin-bottom-8"  data-module="govuk-button">
+      <a href="/postcode" role="button" draggable="false" class="govuk-button govuk-button--start govuk-!-margin-top-2 govuk-!-margin-bottom-8"  data-module="govuk-button">
         Start now
         <svg class="govuk-button__start-icon" xmlns="http://www.w3.org/2000/svg" width="17.5" height="19" viewBox="0 0 33 40" role="presentation" focusable="false">
           <path fill="currentColor" d="M0 0h13l20 20-20 20H0l20-20z"></path>
@@ -67,25 +72,21 @@
 
       <aside class="app-related-items" role="complementary">
         <h2 class="govuk-heading-m" id="subsection-title">
-          Subsection
+          Related pages
         </h2>
         <nav role="navigation" aria-labelledby="subsection-title">
           <ul class="govuk-list govuk-!-font-size-16">
             <li>
               <a href="#">
-                Related link
+                Report a communal repair
               </a>
             </li>
             <li>
               <a href="#">
-                Related link
+                Fix it yourself videos
               </a>
             </li>
-            <li>
-              <a href="#" class="govuk-!-font-weight-bold">
-                More <span class="govuk-visually-hidden">in Subsection</span>
-              </a>
-            </li>
+      
           </ul>
         </nav>
       </aside>

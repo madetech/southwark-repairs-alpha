@@ -1,0 +1,70 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  Question page
+{% endblock %}
+
+{% block beforeContent %}
+  <a class="govuk-back-link" href="/repair-type-kitchen">Back</a>
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-xl">What is the problem in your kitchen?</h1>
+
+      <div class="govuk-form-group">
+  <label class="govuk-label" for="more-detail">
+    Can you provide more detail?
+  </label>
+  <span id="more-detail-hint" class="govuk-hint">
+    [Provide an explanation on why it's important to give a detailed description].
+  </span>
+  <textarea class="govuk-textarea" id="more-detail" name="more-detail" rows="5" aria-describedby="more-detail-hint"></textarea>
+</div>
+
+
+<div class="govuk-form-group">
+  <label class="govuk-label" for="file-upload-1">
+    Upload a photo 
+  </label>
+  <input class="govuk-file-upload" id="file-upload-1" name="file-upload-1" type="file">
+
+</div>
+
+        <h3 class="govuk-heading-m">Your photo must be:</h3>
+      <ul class="govuk-list govuk-list--bullet">
+        <li>in colour</li>
+        <li>a jpg or jpeg file</li>
+        <li>at least 50KB and no more than 10MB</li>
+
+      </ul>
+      <form class="form" action="/url/of/next/page" method="post">
+        <button class="govuk-button" data-module="govuk-button">Continue</button>
+
+      </form>
+
+
+
+  </div>
+
+
+  <div class="govuk-grid-column-one-third">
+    <h4 class="govuk-heading-s">Address</h4>
+
+        <p>{{ data['address-postcode'] }}</p>
+
+        <p>{{ data['addresses'] }}</p>
+      
+        <p><a href="postcode">
+              Change
+        <span class="govuk-visually-hidden"> postcode</span>
+        </a><p>
+      </div>
+  
+
+</div>
+
+{% endblock %}
