@@ -20,3 +20,17 @@ $govuk-assets-path: '/govuk/assets/';
 .govuk-header__logotype{
     display: none;
 }
+
+.govuk-panel {
+    text-align: left;
+    background-color:#1d70b8;
+    padding: 0.5em;
+    margin: 1em;
+    margin-top: 0;
+
+    .govuk-heading-s, 
+    p,
+    a {
+        color: #ffffff;
+    }
+}

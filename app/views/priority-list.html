@@ -77,16 +77,19 @@
 
 
   <div class="govuk-grid-column-one-third">
+    <div class="govuk-panel">
     <h4 class="govuk-heading-s">Address</h4>
 
-        <p>{{ data['address-postcode'] }}</p>
 
-        <p>{{ data['addresses'] }}</p>
-      
+        <p>{{ data['addresses'] }}<br>{{ data['address-postcode'] }}</p>
+
         <p><a href="postcode">
               Change
         <span class="govuk-visually-hidden"> postcode</span>
         </a><p>
+
+
+      </div>
       </div>
   
 

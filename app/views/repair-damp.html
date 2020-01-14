@@ -31,29 +31,26 @@
 
       <p class="govuk-body">Continue if you have followed these steps for 3 months and have not seen an improvement.</a></p>
       
-      <form class="form" action="/repair-description" method="post">
+      <form class="form" action="/repair-description-damp" method="post">
         <button class="govuk-button" data-module="govuk-button">Continue</button>
       </form>
     </div>
 
 
     <div class="govuk-grid-column-one-third">
-    <h4 class="govuk-heading-s">Address</h4>
+      <div class="govuk-panel">
 
-        <p>{{ data['address-postcode'] }}</p>
+      <h4 class="govuk-heading-s">Address</h4>
+          <p>{{ data['addresses'] }}<br>{{ data['address-postcode'] }}</p>
 
-        <p>{{ data['addresses'] }}</p>
-      
-        <p><a href="postcode">
-              Change
-        <span class="govuk-visually-hidden"> postcode</span>
-        </a><p>
-    <h4 class="govuk-heading-s">Repair details</h4>
+        
+          <p><a href="postcode">
+                Change
+          <span class="govuk-visually-hidden"> postcode</span>
+          </a><p>
 
-        <p>{{ data["repair-location"] }}</p>
-<p>{{ data['repair-description'] }}</p>
       </div>
-  
+    </div>
 
 </div>
 
