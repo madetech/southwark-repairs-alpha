@@ -1,7 +1,7 @@
 {% extends "layout.html" %}
 
 {% block pageTitle %}
-  Question page
+  Address
 {% endblock %}
 
 {% block beforeContent %}
@@ -14,6 +14,7 @@
     <div class="govuk-grid-column-two-thirds">
 
       <h1 class="govuk-heading-xl">Where is the repair located?</h1>
+
 
       <form class="form" action="/priority-list" method="post">
 
@@ -64,6 +65,8 @@
 
 
   </div>
+
+    <p class="govuk-inset-text">We can only arrange for repairs to property maintained by the council.</p>
   <p><a href="/not-eligible">I can't find my address on this list</a></p>
 
         <button class="govuk-button" data-module="govuk-button">Continue</button>
