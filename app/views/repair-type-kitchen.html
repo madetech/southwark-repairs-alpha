@@ -13,7 +13,7 @@
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
 
-      <form class="form" action="/repair-description-damp" method="post">
+      <form class="form" action="/repair-description-answer" method="post">
 
       {% from "govuk/components/radios/macro.njk" import govukRadios %}
 
@@ -35,10 +35,10 @@
           checked: checked("repair-location-kitchen", "Cupboards")
         },
         {
-          value: "Damp",
-          text: "Damp or mold",
+          value: "Damp or mould",
+          text: "Damp or mould",
           id: "repair-location-kitchen-damp",
-          checked: checked("repair-location-kitchen", "Damp")
+          checked: checked("repair-location-kitchen", "Damp or mould")
         },
         {
           value: "Electrical",
@@ -65,10 +65,10 @@
           checked: checked("repair-location-kitchen", "Drip")
         },
         {
-          value: "Something-else",
+          value: "Something else",
           text: "Something else",
           id: "repair-location-kitchen-something-sel",
-          checked: checked("repair-location-kitchen", "Something-else")
+          checked: checked("repair-location-kitchen", "Something else")
         }
       ]
     }) }}

@@ -1,11 +1,11 @@
 {% extends "layout.html" %}
 
 {% block pageTitle %}
-  Repair description - damp
+  Repair description - leak
 {% endblock %}
 
 {% block beforeContent %}
-  <a class="govuk-back-link" href="/repair-damp">Back</a>
+  <a class="govuk-back-link" href="/repair-type-kitchen">Back</a>
 {% endblock %}
 
 {% block content %}
@@ -13,44 +13,56 @@
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
 
-      <form class="form" action="/repair-description-damp-answer" method="post">
+      <form class="form" action="/repair-description-leak-answer" method="post">
 
 
      {% from "govuk/components/radios/macro.njk" import govukRadios %}
 
     {{ govukRadios({
-      name: "repair-description",
+      name: "repair-leak",
       fieldset: {
         legend: {
-          text: "Is your problem damp or mould?",
+          text: "Is your problem one of these?",
           isPageHeading: true,
           classes: "govuk-fieldset__legend--xl" 
         }
       },
       items: [
         {
-          value: "Damp",
-          text: "Damp",
-          id: "repair-description-damp",
-          checked: checked("repair-description", "Damp")
+          value: "dripping-from-wall",
+          text: "Water dripping from a wall or ceiling",
+          id: "repair-leak-dripping-from-wall",
+          checked: checked("repair-leak", "dripping from wall")
         },
         {
-          value: "Mold",
-          text: "Mould",
-          id: "repair-description-mold",
-          checked: checked("repair-description", "Mould")
+          value: "leaking-from-sink",
+          text: "Sink is leaking and I can contain the leak with a bucket",
+          id: "repair-leak-leaking-from-sink",
+          checked: checked("repair-leak", "leaking-from-sink")
         },
         {
-          value: "Both",
-          text: "Both",
-          id: "repair-description-both",
-          checked: checked("repair-description", "Both")
+          value: "tap-dripping-water",
+          text: "Tap is dripping water",
+          id: "repair-leak-tap-dripping-water",
+          checked: checked("repair-leak", "tap-dripping-water")
         },
         {
-          value: "unsure",
-          text: "Not sure",
-          id: "repair-description-unsure",
-          checked: checked("repair-description", "Not sure")
+          value: "tap-broken",
+          text: "Tap won't turn off and water is flowing fast",
+          id: "repair-leak-tap-broken",
+          checked: checked("repair-leak", "tap-broken")
+        },
+        {
+          value: "radiator-leaking",
+          text: "Radiator is leaking and I can contain the leak with a bucket",
+          id: "repair-leak-radiator-leaking",
+          checked: checked("repair-leak", "radiator-leaking")
+        },
+        {
+          value: "something-else",
+          text: "My problem is something else",
+          id: "repair-leak-something-else",
+          checked: checked("repair-leak", "something-else")
         }
       ]
     }) }}

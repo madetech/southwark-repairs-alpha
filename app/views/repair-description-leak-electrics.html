@@ -1,11 +1,11 @@
 {% extends "layout.html" %}
 
 {% block pageTitle %}
-    Repair description - damp (pipes)
+  Repair description - leak
 {% endblock %}
 
 {% block beforeContent %}
-  <a class="govuk-back-link" href="/repair-description-damp">Back</a>
+  <a class="govuk-back-link" href="/repair-description-leak">Back</a>
 {% endblock %}
 
 {% block content %}
@@ -13,47 +13,46 @@
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
 
-      <form class="form" action="/repair-description" method="post">
+      <form class="form" action="/repair-description-leak-electrics-answer" method="post">
 
-   {% from "govuk/components/radios/macro.njk" import govukRadios %}
+
+     {% from "govuk/components/radios/macro.njk" import govukRadios %}
 
     {{ govukRadios({
-      name: "mould-wet",
+      name: "repair-leak-electrics",
       fieldset: {
         legend: {
-          text: "Is the area around the mould wet?",
+          text: "Is the water",
           isPageHeading: true,
           classes: "govuk-fieldset__legend--xl" 
         }
       },
       items: [
         {
-          value: "Yes",
-          text: "Yes",
-          id: "mould-wet-yes",
-          checked: checked("external-pipes", "Yes")
+          value: "dripping-on-electrics",
+          text: "dripping onto electrics?",
+          id: "repair-leak-electrics-dripping-on-electrics",
+          checked: checked("repair-leak-electrics", "dripping-on-electrics")
         },
         {
-          value: "No",
-          text: "No",
-          id: "mould-wet-no",
-          checked: checked("repair-description", "No")
+          value: "containable",
+          text: "containable with a bucket or towel?",
+          id: "repair-leak-electrics-containable",
+          checked: checked("repair-leak-electrics", "containable")
         },
         {
-          value: "Unsure",
-          text: "Not sure",
-          id: "mould-wet-unsure",
-          checked: checked("repair-description", "Unsure")
+          value: "non-containable",
+          text: "not containable?",
+          id: "repair-leak-electrics-not-containable",
+          checked: checked("repair-leak-electrics", "not-containable")
         }
+        
       ]
     }) }}
 
- 
         <button class="govuk-button" data-module="govuk-button">Continue</button>
 
       </form>
-
-
 
   </div>
 
@@ -74,7 +73,7 @@
          <hr>
         <h4 class="govuk-heading-s">Repair details</h4>
 
-        <p>Location: {{ data["repair-location"] }} </p>
+        <p>Location: {{ data["repair-location"] }}</p>
               <p><a href="/repair-location">
               Change
         <span class="govuk-visually-hidden"> location</span>
