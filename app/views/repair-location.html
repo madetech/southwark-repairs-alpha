@@ -12,7 +12,7 @@
 
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
-      <form class="form" action="/repair-type-kitchen" method="post">
+      <form class="form" action="/repair-type" method="post">
 
      {% from "govuk/components/radios/macro.njk" import govukRadios %}
 
@@ -39,10 +39,10 @@
           checked: checked("repair-location", "Bathroom")
         },
         {
-          value: "Elsewhere",
+          value: "Elsewhere in the property",
           text: "Elsewhere in the property",
           id: "repair-description-elsewhere",
-          checked: checked("repair-description", "Elsewhere")
+          checked: checked("repair-description", "Elsewhere in the property")
         }
       ]
     }) }}

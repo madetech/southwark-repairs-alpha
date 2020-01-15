@@ -87,7 +87,8 @@
 
   <div class="govuk-grid-column-one-third">
     <div class="govuk-panel govuk-panel--side">
-    <h4 class="govuk-heading-s">Address</h4>
+   <h4 class="govuk-heading-s">Address</h4>
+
         <p>{{ data['addresses'] }}<br>{{ data['address-postcode'] }}</p>
 
       
@@ -95,9 +96,16 @@
               Change
         <span class="govuk-visually-hidden"> postcode</span>
         </a><p>
+
+         <hr>
         <h4 class="govuk-heading-s">Repair details</h4>
 
-        <p>{{ data["repair-location"] }}</p>
+        <p>Location: {{ data["repair-location"] }}</p>
+              <p><a href="/repair-location">
+              Change
+        <span class="govuk-visually-hidden"> location</span>
+        </a><p>
+      
       </div>
     </div>
 
