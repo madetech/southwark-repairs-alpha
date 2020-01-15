@@ -5,7 +5,7 @@
 {% endblock %}
 
 {% block beforeContent %}
-  <a class="govuk-back-link" href="/url/of/previous/page">Back</a>
+  <a class="govuk-back-link" href="/contact-details">Back</a>
 {% endblock %}
 
 {% block content %}
@@ -14,21 +14,99 @@
     <div class="govuk-grid-column-two-thirds">
 
       <h1 class="govuk-heading-xl">
-        Summary page
+        Report summary
       </h1>
 
-      <p>[Pre-confirmation page playing back all the data collected from the user up to this point.]</p>
+ <h2 class="govuk-heading-m">Personal details</h2>
 
-    <div class="govuk-form-group">
-      <label class="govuk-label" for="email">
-        Email address
-      </label>
-      <span id="email-hint" class="govuk-hint">
-        We’ll only use this to send you a reference number.
-      </span>
-      <input class="govuk-input" id="email" name="email" type="email" aria-describedby="email-hint" autocomplete="email" spellcheck="false">
-    </div>
-    
+      <dl class="govuk-summary-list govuk-!-margin-bottom-9">
+
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Address
+          </dt>
+          <dd class="govuk-summary-list__value">
+            {{ data['addresses']}}
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            <a href="/postcode">
+              Change
+              <span class="govuk-visually-hidden"> contact information</span>
+            </a>
+          </dd>
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Contact details
+          </dt>
+          <dd class="govuk-summary-list__value">
+            <p>{{ data['contact-by-phone']}}</p>
+            <p>{{ data['contact-by-email']}}</p>
+            <p>{{ data['contact-by-text']}}</p>
+
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            <a href="/contact-details">
+              Change
+              <span class="govuk-visually-hidden"> contact details</span>
+            </a>
+          </dd>
+        </div>
+      </dl>
+
+       <h2 class="govuk-heading-m">Repair details</h2>
+
+      <dl class="govuk-summary-list govuk-!-margin-bottom-9">
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Location
+          </dt>
+          <dd class="govuk-summary-list__value">
+            {{ data['repair-location']}}
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            <a href="/repair-location">
+              Change
+              <span class="govuk-visually-hidden"> name</span>
+            </a>
+          </dd>
+        </div>
+
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Issue
+          </dt>
+          <dd class="govuk-summary-list__value">
+            {{ data['repair-description']}}
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            <a href="/repair-type-kitchen">
+              Change
+              <span class="govuk-visually-hidden"> contact information</span>
+            </a>
+          </dd>
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Description
+          </dt>
+          <dd class="govuk-summary-list__value">
+            {{data['more-detail']}}
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            <a href="/repair-description">
+              Change
+              <span class="govuk-visually-hidden"> contact details</span>
+            </a>
+          </dd>
+        </div>
+      </dl>
+
+
+
+
+
+
          <form action="/confirmation" method="post" novalidate>
 
         <input type="hidden" name="answers-checked" value="true">

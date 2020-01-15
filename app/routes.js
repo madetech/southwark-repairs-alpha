@@ -36,5 +36,15 @@ router.post("/repair-location-kitchen-answer", function(req, res) {
     }
   });
 
+  router.post("/repair-description-damp-answer", function(req, res) {
+    if (req.session.data["repair-description"] === "Damp") {
+      res.redirect("/repair-damp");
+    } else if (req.session.data["repair-description"] === "Mold"){
+      res.redirect("/repair-description-damp-mold");
+    } else {
+      res.redirect("/repair-description")
+    }
+  });
+
 
 module.exports = router

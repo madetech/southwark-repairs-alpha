@@ -1,7 +1,7 @@
 {% extends "layout.html" %}
 
 {% block pageTitle %}
-  Question page
+  Repair description
 {% endblock %}
 
 {% block beforeContent %}
@@ -15,17 +15,27 @@
 
       <h1 class="govuk-heading-xl">Describe your problem in more detail</h1>
 
-      <form class="form" action="/summary" method="post">
+      <p>Please describe:</p>
+      <ul class="govuk-list govuk-list--bullet">
+        <li>the size and location of the problem</li>
+        <li>the source of the problem</li>
+        <li>how long you have been experiencing the problem</li>
 
+      </ul>
+
+      <div class="govuk-inset-text">
+        Please report only one problem at a time. You will have a chance to report another repair after this one.
+      </div>
+
+      <form class="form" action="/contact-details" method="post">
     
       <div class="govuk-form-group">
   <label class="govuk-label" for="more-detail">
-    Can you provide more detail?
+    
   </label>
-  <span id="more-detail-hint" class="govuk-hint">
-    [Provide an explanation on why it's important to give a detailed description].
-  </span>
-  <textarea class="govuk-textarea" id="more-detail" name="more-detail" rows="5" aria-describedby="more-detail-hint"></textarea>
+  
+  
+  <textarea class="govuk-textarea" id="more-detail" name="more-detail" rows="5" aria-describedby="more-detail-hint">{{data['more-detail']}}</textarea>
 </div>
 
 
@@ -54,7 +64,7 @@
 
 
   <div class="govuk-grid-column-one-third">
-  <div class="govuk-panel">
+  <div class="govuk-panel govuk-panel--side">
     <h4 class="govuk-heading-s">Address</h4>
 
         <p>{{ data['addresses'] }}<br>{{ data['address-postcode'] }}</p>

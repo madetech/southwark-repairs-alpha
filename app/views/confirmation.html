@@ -1,7 +1,7 @@
 {% extends "layout.html" %}
 
 {% block pageTitle %}
-  Confirmation page example
+  Confirmation
 {% endblock %}
 
 {% block content %}
@@ -12,23 +12,19 @@
       <div class="govuk-panel govuk-panel--confirmation">
         <h1 class="govuk-panel__title">Report complete</h1>
         <div class="govuk-panel__body">
-          Your reference number is<br><strong>HDJ2123F</strong>
+          Your job number is<br><strong>HDJ2123F</strong>
         </div>
       </div>
 
       <p>
-        We have sent you a confirmation email.
+        We have sent you a confirmation by {{ data['how-contacted']}}.
       </p>
 
       <h2 class="govuk-heading-m">What happens next</h2>
-      <p>If you would like to share more details about your problem and submit photos, you may continue with the reporting process.</p>
-
-      <p>If you follow the steps to fix damp and see no improvement by 31 March 2020, or if your problem becomes worse please contact us again.
-      </p>
-
-    <p>We will then use all of the information provided in this report to help us diagnose the damp problem.</p>
-
-    <p>[Report another issue]</p>
+      <p>We will be in touch to ask follow-up questions and to schedule a repair appointment.</p>
+      
+      <p>If you have a council account a record of your report can be viewed there.</p>
+      <p><a href="/start">Report another issue</a></p>
 
     </div>
 

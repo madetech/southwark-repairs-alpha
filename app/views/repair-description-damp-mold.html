@@ -1,11 +1,11 @@
 {% extends "layout.html" %}
 
 {% block pageTitle %}
-  Repair description - damp
+    Repair description - damp (pipes)
 {% endblock %}
 
 {% block beforeContent %}
-  <a class="govuk-back-link" href="/repair-damp">Back</a>
+  <a class="govuk-back-link" href="/repair-description-damp">Back</a>
 {% endblock %}
 
 {% block content %}
@@ -13,51 +13,47 @@
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
 
-      <form class="form" action="/repair-description-damp-answer" method="post">
+      <form class="form" action="/repair-description" method="post">
 
-
-     {% from "govuk/components/radios/macro.njk" import govukRadios %}
+   {% from "govuk/components/radios/macro.njk" import govukRadios %}
 
     {{ govukRadios({
-      name: "repair-description",
+      name: "mould-wet",
       fieldset: {
         legend: {
-          text: "Is your problem damp or mold?",
+          text: "Is the area around the mould wet?",
           isPageHeading: true,
           classes: "govuk-fieldset__legend--xl" 
         }
       },
       items: [
         {
-          value: "Damp",
-          text: "Damp",
-          id: "repair-description-damp",
-          checked: checked("repair-description", "Damp")
+          value: "Yes",
+          text: "Yes",
+          id: "mould-wet-yes",
+          checked: checked("external-pipes", "Yes")
         },
         {
-          value: "Mold",
-          text: "Mold",
-          id: "repair-description-mold",
-          checked: checked("repair-description", "Mold")
+          value: "No",
+          text: "No",
+          id: "mould-wet-no",
+          checked: checked("repair-description", "No")
         },
         {
-          value: "Both",
-          text: "Both",
-          id: "repair-description-both",
-          checked: checked("repair-description", "Both")
-        },
-        {
-          value: "unsure",
+          value: "Unsure",
           text: "Not sure",
-          id: "repair-description-unsure",
-          checked: checked("repair-description", "Not sure")
+          id: "mould-wet-unsure",
+          checked: checked("repair-description", "Unsure")
         }
       ]
     }) }}
 
+ 
         <button class="govuk-button" data-module="govuk-button">Continue</button>
 
       </form>
+
+
 
   </div>
 
