@@ -1,0 +1,91 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  Repair description - inside property
+{% endblock %}
+
+{% block beforeContent %}
+  <a class="govuk-back-link" href="/v1/repair-description-leak-electrics">Back</a>
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <form class="form" action="/v1/repair-description-leak-source" method="post">
+
+
+     {% from "govuk/components/radios/macro.njk" import govukRadios %}
+
+    {{ govukRadios({
+      name: "repair-leak-inside",
+      fieldset: {
+        legend: {
+          text: "Is the water coming from inside your property",
+          isPageHeading: true,
+          classes: "govuk-fieldset__legend--xl" 
+        }
+      },
+      items: [
+        {
+          value: "yes",
+          text: "Yes",
+          id: "repair-leak-inside-yes",
+          checked: checked("repair-leak-inside", "Yes")
+        },
+        {
+          value: "no",
+          text: "No, it's coming from outside my property",
+          id: "repair-leak-inside-no",
+          checked: checked("repair-leak-inside", "No")
+        },
+        {
+          value: "unsure",
+          text: "I'm not sure",
+          id: "repair-leak-inside-unsure",
+          checked: checked("repair-leak-inside", "I'm not sure")
+        }
+        
+      ]
+    }) }}
+
+        <button class="govuk-button" data-module="govuk-button">Continue</button>
+
+      </form>
+
+  </div>
+
+
+  <div class="govuk-grid-column-one-third">
+      <div class="govuk-panel govuk-panel--side">
+
+    <h4 class="govuk-heading-s">Address</h4>
+
+        <p>{{ data['addresses'] }}<br>{{ data['address-postcode'] }}</p>
+
+      
+        <p><a href="postcode">
+              Change
+        <span class="govuk-visually-hidden"> postcode</span>
+        </a><p>
+
+         <hr>
+        <h4 class="govuk-heading-s">Repair details</h4>
+
+        <p>Location: {{ data["repair-location"] }}</p>
+              <p><a href="/v1/repair-location">
+              Change
+        <span class="govuk-visually-hidden"> location</span>
+        </a><p>
+        <p>Issue: {{ data['repair-location-kitchen'] }}</p>
+         <p><a href="/v1/repair-type">
+              Change
+        <span class="govuk-visually-hidden"> item</span>
+        </a><p>
+      </div>
+  </div>
+
+</div>
+
+{% endblock %}

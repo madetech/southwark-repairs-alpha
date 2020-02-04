@@ -1,0 +1,124 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  Summary
+{% endblock %}
+
+{% block beforeContent %}
+  <a class="govuk-back-link" href="/v1/contact-details">Back</a>
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <h1 class="govuk-heading-xl">
+        Report summary
+      </h1>
+
+ <h2 class="govuk-heading-m">Personal details</h2>
+
+      <dl class="govuk-summary-list govuk-!-margin-bottom-9">
+
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Address
+          </dt>
+          <dd class="govuk-summary-list__value">
+            {{ data['addresses']}}
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            <a href="/v1/postcode">
+              Change
+              <span class="govuk-visually-hidden"> contact information</span>
+            </a>
+          </dd>
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Contact details
+          </dt>
+          <dd class="govuk-summary-list__value">
+            <p>{{ data['contact-by-phone']}}</p>
+            <p>{{ data['contact-by-email']}}</p>
+            <p>{{ data['contact-by-text']}}</p>
+
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            <a href="/v1/contact-details">
+              Change
+              <span class="govuk-visually-hidden"> contact details</span>
+            </a>
+          </dd>
+        </div>
+      </dl>
+
+       <h2 class="govuk-heading-m">Repair details</h2>
+
+      <dl class="govuk-summary-list govuk-!-margin-bottom-9">
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Location
+          </dt>
+          <dd class="govuk-summary-list__value">
+            {{ data['repair-location']}}
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            <a href="/v1/repair-location">
+              Change
+              <span class="govuk-visually-hidden"> name</span>
+            </a>
+          </dd>
+        </div>
+
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Issue
+          </dt>
+          <dd class="govuk-summary-list__value">
+            {{ data['repair-description']}}
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            <a href="/v1/repair-type">
+              Change
+              <span class="govuk-visually-hidden"> contact information</span>
+            </a>
+          </dd>
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Description
+          </dt>
+          <dd class="govuk-summary-list__value">
+            {{data['more-detail']}}
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            <a href="/v1/repair-description">
+              Change
+              <span class="govuk-visually-hidden"> contact details</span>
+            </a>
+          </dd>
+        </div>
+      </dl>
+
+
+
+
+
+
+         <form action="/v1/confirmation" method="post" novalidate>
+
+        <input type="hidden" name="answers-checked" value="true">
+
+        <button type="submit" class="govuk-button" data-module="govuk-button">
+          Confirm and report
+        </button>
+
+      </form>
+    </div>
+
+
+
+  </div>
+
+{% endblock %}

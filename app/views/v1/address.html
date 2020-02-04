@@ -1,0 +1,79 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  Address
+{% endblock %}
+
+{% block beforeContent %}
+  <a class="govuk-back-link" href="/v1/postcode">Back</a>
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-xl">Where is the repair located?</h1>
+
+
+      <form class="form" action="/v1/priority-list" method="post">
+
+        <div class="govuk-form-group">
+  
+   <div class="govuk-form-group">
+
+{% from "govuk/components/select/macro.njk" import govukSelect %}
+
+{{ govukSelect({
+  id: "addresses",
+  name: "addresses",
+  label: {
+    text: "Select an address"
+  },
+  items: [
+    {
+      value: "Unanswered",
+      text: "3 addresses found",
+      id: "addresses-flat-0",
+      checked: checked("addresses", "Unanswered"),
+      selected: true
+
+    },
+    {
+      value: "Flat 1, Shoreditch House",
+      text: "Flat 1, Shoreditch House",
+      id: "addresses-flat-1",
+      checked: checked("addresses", "Flat 1, Shoreditch House")
+    },
+    {
+      value: "Flat , Shoreditch House",
+      text: "Flat 2, Shoreditch House",
+      id: "addresses-flat-2",
+      checked: checked("addresses", "Flat 2, Shoreditch House")
+    },
+    {
+      value: "Flat 3, Shoreditch House",
+      text: "Flat 3, Shoreditch House",
+      id: "addresses-flat-3",
+      checked: checked("addresses", "Flat 3, Shoreditch House")
+    }
+  ]
+}) }}
+
+
+</div>
+
+
+  </div>
+
+    <p class="govuk-inset-text">We can only arrange for repairs to property maintained by the council.</p>
+  <p><a href="/v1/not-eligible">I can't find my address on this list</a></p>
+
+        <button class="govuk-button" data-module="govuk-button">Continue</button>
+
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}

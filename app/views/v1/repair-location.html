@@ -1,0 +1,76 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  Question page
+{% endblock %}
+
+{% block beforeContent %}
+  <a class="govuk-back-link" href="/v1/prior-repair">Back</a>
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <form class="form" action="/v1/repair-type" method="post">
+
+     {% from "govuk/components/radios/macro.njk" import govukRadios %}
+
+    {{ govukRadios({
+      name: "repair-location",
+      fieldset: {
+        legend: {
+          text: "Where is the problem located?",
+          isPageHeading: true,
+          classes: "govuk-fieldset__legend--xl"
+        }
+      },
+      items: [
+        {
+          value: "Kitchen",
+          text: "Kitchen",
+          id: "repair-location-kitchen",
+          checked: checked("repair-location", "Kitchen")
+        },
+        {
+          value: "Bathroom",
+          text: "Bathroom",
+          id: "repair-location-bathroom",
+          checked: checked("repair-location", "Bathroom")
+        },
+        {
+          value: "Elsewhere in the property",
+          text: "Elsewhere in the property",
+          id: "repair-description-elsewhere",
+          checked: checked("repair-description", "Elsewhere in the property")
+        }
+      ]
+    }) }}
+
+
+        <button class="govuk-button" data-module="govuk-button">Continue</button>
+
+      </form>
+
+
+
+  </div>
+
+
+  <div class="govuk-grid-column-one-third">
+    <div class="govuk-panel govuk-panel--side">
+      <h4 class="govuk-heading-s">Address</h4>
+      <p>{{ data['addresses'] }}<br>{{ data['address-postcode'] }}</p>
+      <p><a href="postcode">
+              Change
+        <span class="govuk-visually-hidden"> postcode</span>
+        </a><p>
+
+
+      </div>
+    </div>
+  
+
+</div>
+
+{% endblock %}

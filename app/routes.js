@@ -1,60 +1,61 @@
 const express = require('express')
 const router = express.Router()
-
 // Add your routes here - above the module.exports line
 
+
 // Route for following up prior repairs
-router.post("/prior-repair-answer", function(req, res) {
-    if (req.session.data["prior-repair"] === "Yes") {
-      res.redirect("/last-report");
+router.post("/v1/prior-repair-answer", function(req, res) {
+    if (req.session.data["/v1/prior-repair"] === "Yes") {
+      res.redirect("/v1/last-report");
     } else {
-      res.redirect("/repair-location");
+      res.redirect("/v1/repair-location");
     }
   });
 
 
+
 // Routes for emergency repairs
 
-router.post("/priority-repair-answer", function(req, res) {
+router.post("/v1/priority-repair-answer", function(req, res) {
     if (req.session.data["repair-emergency"] === "none-of-these") {
-      res.redirect("/prior-repair");
+      res.redirect("/v1/prior-repair");
     } else if (req.session.data["repair-emergency"] === "gas")  {
-      res.redirect("/smell-gas");
+      res.redirect("/v1/smell-gas");
     } else {
-        res.redirect("/emergency-repair");
+        res.redirect("/v1/emergency-repair");
 
     }
   });
 
 // Routes for different repair descriptions
 
-router.post("/repair-description-answer", function(req, res) {
+router.post("/v1/repair-description-answer", function(req, res) {
     if (req.session.data["repair-location-kitchen"] === "Damp or mould") {
-      res.redirect("/repair-description-damp");
+      res.redirect("/v1/repair-description-damp");
     } else if (req.session.data["repair-location-kitchen"] === "Drip") {
-      res.redirect("/repair-description-leak");
+      res.redirect("/v1/repair-description-leak");
     } else {
-      res.redirect("/repair-description");
+      res.redirect("/v1/repair-description");
     }
   });
 
-  router.post("/repair-description-damp-answer", function(req, res) {
+  router.post("/v1/repair-description-damp-answer", function(req, res) {
     if (req.session.data["repair-description"] === "Damp") {
-      res.redirect("/repair-damp");
+      res.redirect("/v1/repair-damp");
     } else if (req.session.data["repair-description"] === "Mold"){
-      res.redirect("/repair-description-damp-mold");
+      res.redirect("/v1/repair-description-damp-mold");
     } else {
-      res.redirect("/repair-description")
+      res.redirect("/v1/repair-description")
     }
   });
 
-  router.post("/repair-description-leak-answer", function(req, res) {
+  router.post("/v1/repair-description-leak-answer", function(req, res) {
     if (req.session.data["repair-leak"] === "dripping-from-wall") {
-      res.redirect("/repair-description-leak-electrics");
+      res.redirect("/v1/repair-description-leak-electrics");
     } else if (req.session.data["repair-leak"] === "tap-broken"){
-      res.redirect("/emergency-repair");
+      res.redirect("/v1/emergency-repair");
     } else {
-      res.redirect("/repair-description")
+      res.redirect("/v1/repair-description")
     }
   });
 
