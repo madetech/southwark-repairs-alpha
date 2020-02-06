@@ -5,7 +5,7 @@
 {% endblock %}
 
 {% block beforeContent %}
-  <a class="govuk-back-link" href="/repair-damp">Back</a>
+  <a class="govuk-back-link" href="/v2/repair-type">Back</a>
 {% endblock %}
 
 {% block content %}
@@ -15,28 +15,48 @@
 
       <h1 class="govuk-heading-xl">Describe your problem in more detail</h1>
 
-      <p>Please describe:</p>
-      <ul class="govuk-list govuk-list--bullet">
-        <li>the size and location of the problem</li>
-        <li>the source of the problem</li>
-        <li>how long you have been experiencing the problem</li>
-
-      </ul>
+      <p>Please report only one problem at a time. You will have a chance to report another repair after this one.</p>
 
       <div class="govuk-inset-text">
-        Please report only one problem at a time. You will have a chance to report another repair after this one.
+        [Information on fix it yourself video relevant to this repair type].
       </div>
 
-      <form class="form" action="/contact-details" method="post">
-    
-      <div class="govuk-form-group">
-  <label class="govuk-label" for="more-detail">
-    
-  </label>
+    <form class="form" action="/v2/personal-details" method="post">
+    <div class="govuk-form-group">
+          <label class="govuk-label" for="more-detail">
+            What is the size and location of the problem?
+          </label>
+          <span id="more-detail-hint" class="govuk-hint">
+            Enter some sample hint text.
+          </span>
+          <textarea class="govuk-textarea" id="more-detail" name="more-detail" rows="5" aria-describedby="more-detail-hint"></textarea>
+    </div>
   
-  
-  <textarea class="govuk-textarea" id="more-detail" name="more-detail" rows="5" aria-describedby="more-detail-hint">{{data['more-detail']}}</textarea>
-</div>
+    <div class="govuk-form-group">
+          <label class="govuk-label" for="more-detail">
+            What is the source of the problem?
+          </label>
+          <span id="more-detail-hint" class="govuk-hint">
+            Enter some sample hint text.
+          </span>
+          <textarea class="govuk-textarea" id="more-detail" name="more-detail" rows="5" aria-describedby="more-detail-hint"></textarea>
+    </div>
+
+    <div class="govuk-form-group">
+          <label class="govuk-label" for="more-detail">
+            How long you have been experiencing the problem?
+          </label>
+          <span id="more-detail-hint" class="govuk-hint">
+            Enter some sample hint text.
+          </span>
+          <textarea class="govuk-textarea" id="more-detail" name="more-detail" rows="5" aria-describedby="more-detail-hint"></textarea>
+    </div>
+
+
+
+
+
+    
 
 
 <div class="govuk-form-group">

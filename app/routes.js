@@ -1,6 +1,7 @@
 const express = require('express')
 const router = express.Router()
-// Add your routes here - above the module.exports line
+
+
 
 
 // Route for following up prior repairs
@@ -12,7 +13,14 @@ router.post("/v1/prior-repair-answer", function(req, res) {
     }
   });
 
-
+  // for version 2
+  router.post("/v2/prior-repair-answer", function(req, res) {
+    if (req.session.data["/v2/prior-repair"] === "Yes") {
+      res.redirect("/v2/last-report");
+    } else {
+      res.redirect("/v2/repair-type");
+    }
+  });
 
 // Routes for emergency repairs
 
@@ -38,6 +46,19 @@ router.post("/v1/repair-description-answer", function(req, res) {
       res.redirect("/v1/repair-description");
     }
   });
+
+    // for version 2
+// router.post("/v2/repair-description-answer", function(req, res) {
+//     if (req.session.data["repair-location-kitchen"] === "Damp or mould") {
+//       res.redirect("/v2/repair-description-damp");
+//     } else if (req.session.data["repair-location-kitchen"] === "Drip") {
+//       res.redirect("/v2/repair-description-leak");
+//     } else {
+//       res.redirect("/v2/repair-description");
+//     }
+//   });
+
+
 
   router.post("/v1/repair-description-damp-answer", function(req, res) {
     if (req.session.data["repair-description"] === "Damp") {

@@ -5,7 +5,7 @@
 {% endblock %}
 
 {% block beforeContent %}
-  <a class="govuk-back-link" href="/repair-location">Back</a>
+  <a class="govuk-back-link" href="/v2/prior-repair">Back</a>
 {% endblock %}
 
 {% block content %}
@@ -13,7 +13,7 @@
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
 
-      <form class="form" action="/repair-description-answer" method="post">
+      <form class="form" action="/v2/repair-description" method="post">
 
       {% from "govuk/components/radios/macro.njk" import govukRadios %}
 
