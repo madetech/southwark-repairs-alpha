@@ -35,6 +35,15 @@ router.post("/v1/priority-repair-answer", function(req, res) {
     }
   });
 
+//Routes for leaseholder
+router.post("/v2/leaseholder-answer", function(req, res) {
+  if (req.session.data["is-leaseholder"] === "yes") {
+    res.redirect("/v2/repairs-leaseholder");
+  } else  {
+    res.redirect("/v2/postcode");
+  }
+});
+
 // Routes for different repair descriptions
 
 router.post("/v1/repair-description-answer", function(req, res) {
