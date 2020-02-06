@@ -63,10 +63,10 @@
             Problem
           </dt>
           <dd class="govuk-summary-list__value">
-            {{ data['repair-description']}}
+            {{ data['repair-location-kitchen']}}
           </dd>
           <dd class="govuk-summary-list__actions">
-            <a href="/repair-type">
+            <a href="/v2/repair-type">
               Change
               <span class="govuk-visually-hidden"> contact information</span>
             </a>
@@ -77,10 +77,13 @@
             Description
           </dt>
           <dd class="govuk-summary-list__value">
-            {{data['more-detail']}}
+            
+            <p>{{data['problem-location']}}</p>
+            <p>{{data['problem-source']}}</p>
+            <p>{{data['problem-duration']}}</p>
           </dd>
           <dd class="govuk-summary-list__actions">
-            <a href="/repair-description">
+            <a href="/v2/repair-description">
               Change
               <span class="govuk-visually-hidden"> contact details</span>
             </a>
@@ -98,10 +101,10 @@
             Date
           </dt>
           <dd class="govuk-summary-list__value">
-            {{ data['repair-description']}}
+            <p>{{data['availability']}}, from {{data['availability-time']}}</p>
           </dd>
           <dd class="govuk-summary-list__actions">
-            <a href="/repair-type">
+            <a href="/v2/repair-type">
               Change
               <span class="govuk-visually-hidden"> date information</span>
             </a>
@@ -112,10 +115,16 @@
             Additional information
           </dt>
           <dd class="govuk-summary-list__value">
-            {{data['more-detail']}}
+          
+            <p>{{data['vulnerabilities'] | replace(",", "") | safe}}</p>
+
+
+            <p>{{data['access-restrictions'] }}</p>
+
+
           </dd>
           <dd class="govuk-summary-list__actions">
-            <a href="/repair-description">
+            <a href="/v2/personal-details">
               Change
               <span class="govuk-visually-hidden"> contact details</span>
             </a>

@@ -19,8 +19,8 @@
         {% from "govuk/components/checkboxes/macro.njk" import govukCheckboxes %}
 
 {{ govukCheckboxes({
-  idPrefix: "waste",
-  name: "waste",
+  idPrefix: "vulnerabilities",
+  name: "vulnerabilities",
   fieldset: {
     legend: {
       text: "Do any of the following apply to you?",
@@ -33,16 +33,23 @@
   },
   items: [
     {
-      value: "children",
-      text: "Children under 5 live in my home"
+      value: "Children under 5 live in my home",
+      text: "Children under 5 live in my home",
+      id: "vulnerabilities-children",
+      checked: checked("vulnerabilities", "children")
     },
     {
-      value: "medical",
-      text: "I have a medical condition"
+      value: "<br/> I have a medical condition",
+      text: "I have a medical condition",
+      id: "vulnerabilities-medical",
+      checked: checked("vulnerabilities", "medical")
     },
     {
-      value: "mobility",
-      text: "I have mobility difficulties"
+      value: "<br/> I have mobility difficulties",
+      text: "I have mobility difficulties",
+      id: "vulnerabilities-mobility",
+      checked: checked("vulnerabilities", "mobility")
+      
     }
   ]
 }) }}
@@ -54,7 +61,7 @@
           <span id="more-detail-hint" class="govuk-hint">
             Enter any information on access restrictions or resident disability.
           </span>
-          <textarea class="govuk-textarea" id="more-detail" name="more-detail" rows="5" aria-describedby="more-detail-hint"></textarea>
+          <textarea class="govuk-textarea" id="more-detail" name="access-restrictions" rows="5" aria-describedby="more-detail-hint">{{ data["access-restrictions"]}}</textarea>
     </div>
 
 
