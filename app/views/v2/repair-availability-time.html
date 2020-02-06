@@ -1,0 +1,69 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  Choose availability
+{% endblock %}
+
+{% block beforeContent %}
+  <a class="govuk-back-link" href="/v2/repair-assessment">Back</a>
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-xl">When are you available?</h1>
+
+
+      <p class="govuk-body govuk-!-font-size-27"><strong>23rd February 2019</strong></p>
+<form class="form" action="/v2/appointment-playback" method="post">
+{% from "govuk/components/radios/macro.njk" import govukRadios %}
+
+
+{{ govukRadios({
+  idPrefix: "availability-time",
+  name: "availability-time",
+  fieldset: {
+    legend: {
+      text: "Please select a time slot",
+      isPageHeading: true,
+      classes: "govuk-fieldset__legend--s govuk-!-padding-top-4"
+    }
+  },
+  
+  items: [
+    {
+      value: "10:30am to 11:00am",
+      id: "availability-time-1",
+      text: "10:30am to 11:00am",
+      checked: checked("availability-time", "availability-time-1")
+
+    },
+        {
+      value: "1:30pm to 2:00pm",
+      id: "availability-time-2",
+      text: "1:30pm to 2:00pm",
+      checked: checked("availability-time", "availability-time-2")
+    },
+        {
+      value: "10:30am to 11:00am",
+      id: "availability-time-3",
+      text: "4:00pm to 4:30pm",
+      checked: checked("availability", "availability-time-3")
+
+    }
+  ]
+}) }}
+
+
+
+  <button class="govuk-button" data-module="govuk-button">Continue</button>
+
+      </form>
+
+
+    </div>
+  </div>
+
+{% endblock %}

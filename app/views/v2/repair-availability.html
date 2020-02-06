@@ -18,7 +18,7 @@
 
     <p>Someone over 18 must be at home during the repair appointment.</p>
 
-<form class="form" action="/v2/appointment-playback" method="post">
+<form class="form" action="/v2/repair-availability-time" method="post">
 
 
 {% from "govuk/components/checkboxes/macro.njk" import govukCheckboxes %}
@@ -30,15 +30,15 @@
     legend: {
       text: "The earliest appointment slot for this repair is:",
       isPageHeading: true,
-      classes: "govuk-fieldset__legend--s"
+      classes: "govuk-fieldset__legend--s govuk-!-padding-top-4"
     }
   },
   
   items: [
     {
-      value: "26th February 2019 (10:00am)",
+      value: "23rd February 2019",
       id: "availability-first-date",
-      text: "26th February 2019 (10:00am)",
+      text: "23rd February 2019",
       checked: checked("availability", "first-date")
 
     }
@@ -52,20 +52,20 @@
   name: "availability",
   fieldset: {
     legend: {
-      text: "Please select any other dates and times that you are free:",
+      text: "Please select any other dates that you are free:",
       isPageHeading: true,
-      classes: "govuk-fieldset__legend--s"
+      classes: "govuk-fieldset__legend--s govuk-!-padding-top-4"
     }
   },
   
   items: [
     {
       value: "second-date",
-      text: "27th February 2019 (11:00am)"
+      text: "25th February 2019"
     },
         {
       value: "second-date-1",
-      text: "27th February 2019 (1:00pm)"
+      text: "26th February 2019"
     }
   ]
 }) }}
