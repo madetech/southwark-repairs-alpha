@@ -57,16 +57,13 @@ router.post("/v1/repair-description-answer", function(req, res) {
   });
 
     // for version 2
-// router.post("/v2/repair-description-answer", function(req, res) {
-//     if (req.session.data["repair-location-kitchen"] === "Damp or mould") {
-//       res.redirect("/v2/repair-description-damp");
-//     } else if (req.session.data["repair-location-kitchen"] === "Drip") {
-//       res.redirect("/v2/repair-description-leak");
-//     } else {
-//       res.redirect("/v2/repair-description");
-//     }
-//   });
-
+    router.post("/v2/repair-location-answer", function(req, res) {
+      if (req.session.data["repair-location"] === "External repair") {
+        res.redirect("/v2/repair-description");
+      } else {
+        res.redirect("/v2/repair-type");
+      }
+    });
 
 
   router.post("/v1/repair-description-damp-answer", function(req, res) {

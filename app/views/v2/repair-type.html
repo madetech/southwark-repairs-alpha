@@ -29,41 +29,52 @@
       },
       items: [
         {
-          value: "Cupboards",
-          text: "Cupboards or worktop",
-          id: "repair-location-kitchen-cupboards",
-          checked: checked("repair-location-kitchen", "Cupboards")
+          value: "Heating",
+          text: "Heating or hot water",
+          id: "repair-location-kitchen-heating",
+          checked: checked("repair-location-kitchen", "Heating"),
+          hint: {
+            text: "Gas boilers, gas fires, radiators, storage heaters"
+          }
         },
         {
-          value: "Damp or mould",
-          text: "Damp or mould",
-          id: "repair-location-kitchen-damp",
-          checked: checked("repair-location-kitchen", "Damp or mould")
+          value: "Plumbing",
+          text: "Plumbing",
+          id: "repair-location-kitchen-drip",
+          checked: checked("repair-location-kitchen", "Plumbing"),
+          hint: {
+            text: "Drips or leaks, showers, toilers, sinks and taps"
+          }
+        },
+        {
+          value: "Cupboards",
+          text: "Cupboards and built-in furniture",
+          id: "repair-location-kitchen-cupboards",
+          checked: checked("repair-location-kitchen", "Cupboards"),
+          hint: {
+            text: "Kitchen units, airing cupboards"
+          }
         },
         {
           value: "Electrical",
           text: "Electrical",
           id: "repair-location-kitchen-electrical",
-          checked: checked("repair-location-kitchen", "Electrical")
+          checked: checked("repair-location-kitchen", "Electrical"),
+          hint: {
+            text: "Lights, sockets, extractor fans, smoke alarms"
+          }
         },
-                {
-          value: "Heating",
-          text: "Heating or Hot water",
-          id: "repair-location-kitchen-heating",
-          checked: checked("repair-location-kitchen", "Heating")
-        },
-                {
-          value: "Sink",
-          text: "Sink",
-          id: "repair-location-kitchen-sink",
-          checked: checked("repair-location-kitchen", "Sink")
-        },
+                    
         {
-          value: "Drip",
-          text: "Drip or leak",
-          id: "repair-location-kitchen-drip",
-          checked: checked("repair-location-kitchen", "Drip")
+          value: "Walls, floors and ceilings",
+          text: "Walls, floors and ceilings",
+          id: "repair-location-kitchen-sink",
+          checked: checked("repair-location-kitchen", "Walls, floors and ceilings"),
+          hint: {
+            text: "Plaster, floor covering, floorboards, tiles, handrails"
+          }
         },
+
         {
           value: "Something else",
           text: "Something else",
@@ -72,9 +83,6 @@
         }
       ]
     }) }}
-
-
-
 
         <button class="govuk-button" data-module="govuk-button">Continue</button>
 
