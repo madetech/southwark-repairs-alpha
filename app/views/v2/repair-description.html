@@ -16,52 +16,36 @@
       <h1 class="govuk-heading-xl">Describe your problem in more detail</h1>
 
       <p>Please report only one problem at a time. You will have a chance to report another repair after this one.</p>
-
+      {% set repairtype = data['repair-location-kitchen'] | lower %}
+      {% if repairtype !== "electrical" and repairtype !== "something else" %}
       <div class="govuk-inset-text">
-        [Information on fix it yourself video relevant to this repair type].
+        We have short videos on how to <a href="#" class="govuk-link">fix some common problems with {{ repairtype }}</a>.
       </div>
-
+    {% endif %}
     <form class="form" action="/v2/personal-details" method="post">
     <div class="govuk-form-group govuk-!-margin-top-9">
           <label class="govuk-label" for="more-detail">
-            What is the size and location of the problem?
+            Please describe the problem in detail
           </label>
           <span id="more-detail-hint" class="govuk-hint">
-            Enter some sample hint text.
+            Add any information on the size of the issue, or the source if known.
           </span>
           <textarea class="govuk-textarea" id="more-detail" name="problem-location" rows="5" aria-describedby="more-detail-hint">{{data['problem-location']}}</textarea>
     </div>
   
     <div class="govuk-form-group govuk-!-margin-top-9">
           <label class="govuk-label" for="more-detail">
-            What is the source of the problem?
-          </label>
-          <span id="more-detail-hint" class="govuk-hint">
-            Enter some sample hint text.
-          </span>
-          <textarea class="govuk-textarea" id="more-detail" name="problem-source" rows="5" aria-describedby="more-detail-hint">{{data['problem-source']}}</textarea>
-    </div>
-
-    <div class="govuk-form-group govuk-!-margin-top-9">
-          <label class="govuk-label" for="more-detail">
             How long you have been experiencing the problem?
           </label>
-          <span id="more-detail-hint" class="govuk-hint">
-            Enter some sample hint text.
-          </span>
-          <textarea class="govuk-textarea" id="more-detail" name="problem-duration" rows="5" aria-describedby="more-detail-hint">{{data['problem-duration']}}</textarea>
+          <textarea class="govuk-textarea" id="more-detail" name="problem-source" rows="5" aria-describedby="more-detail-hint">{{data['problem-source']}}</textarea>
     </div>
-
-
-
-
-
-    
 
 
 <div class="govuk-form-group">
 
 <h3 class="govuk-heading-m govuk-!-margin-top-9">Upload a photo or video of the damage</h3>
+  <p>A clear picture or video of the problem can help us with the repair. You should include a full image of the problem. </p>
+
   <p>Your photo or video must be:</p>
       <ul class="govuk-list govuk-list--bullet">
         <li>in colour</li>
