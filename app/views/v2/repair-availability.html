@@ -19,30 +19,10 @@
 <p class="govuk-body-l">A responsible adult must be home for all of the repair appointment slot and during the repair apppointment.</p>
 <form class="form" action="/v2/contact-details-appointment" method="post">
 
+<h3 class="govuk-heading-m govuk-!-padding-top-4">The earliest appointment slot for this repair is:</h3>
 
-{% from "govuk/components/checkboxes/macro.njk" import govukCheckboxes %}
 
-{{ govukCheckboxes({
-  idPrefix: "availability",
-  name: "availability",
-  fieldset: {
-    legend: {
-      text: "The earliest appointment slot for this repair is:",
-      isPageHeading: true,
-      classes: "govuk-fieldset__legend--m govuk-!-padding-top-4"
-    }
-  },
-  
-  items: [
-    {
-      value: "23rd February 2019",
-      id: "availability-first-date",
-      text: "23rd February 2019",
-      checked: checked("availability", "first-date")
-
-    }
-  ]
-}) }}
+<h3 class="govuk-heading-m govuk-!-padding-top-4">23rd February 2019</h3>
 
 {% from "govuk/components/radios/macro.njk" import govukRadios %}
 
@@ -55,7 +35,7 @@
     legend: {
       text: "Please select a time slot",
       isPageHeading: true,
-      classes: "govuk-fieldset__legend--s govuk-!-padding-top-4"
+      classes: "govuk-fieldset__legend--s"
     }
   },
   
@@ -89,27 +69,10 @@
   ]
 }) }}
 
-{% from "govuk/components/checkboxes/macro.njk" import govukCheckboxes %}
 
-{{ govukCheckboxes({
-  idPrefix: "availability",
-  name: "availability",
-  fieldset: {
-    legend: {
-      text: "Please select any other dates that you are free:",
-      isPageHeading: true,
-      classes: "govuk-fieldset__legend--m govuk-!-padding-top-4"
-    }
-  },
-  
-  items: [
-    {
-      value: "second-date",
-      text: "25th February 2019"
-    }
-  ]
-}) }}
+<h3 class="govuk-heading-m govuk-!-padding-top-4">Please select any other dates that you are free:</h3>
 
+<h3 class="govuk-heading-m govuk-!-padding-top-4">25th February 2019</h3>
 
 {{ govukRadios({
   classes: "govuk-radios--small",
@@ -119,7 +82,7 @@
     legend: {
       text: "Please select a time slot",
       isPageHeading: true,
-      classes: "govuk-fieldset__legend--s govuk-!-padding-top-4"
+      classes: "govuk-fieldset__legend--s"
     }
   },
   
@@ -153,24 +116,10 @@
   ]
 }) }}
 
-{{ govukCheckboxes({
-  idPrefix: "availability",
-  name: "availability",
-  fieldset: {
-    legend: {
-      text: "",
-      isPageHeading: true,
-      classes: "govuk-fieldset__legend--s govuk-!-padding-top-4"
-    }
-  },
-  
-  items: [
-        {
-      value: "second-date-1",
-      text: "26th February 2019"
-    }
-  ]
-}) }}
+
+
+<h3 class="govuk-heading-m govuk-!-padding-top-4">26th February 2019</h3>
+
 
 
 {{ govukRadios({
@@ -181,7 +130,7 @@
     legend: {
       text: "Please select a time slot",
       isPageHeading: true,
-      classes: "govuk-fieldset__legend--s govuk-!-padding-top-4"
+      classes: "govuk-fieldset__legend--s"
     }
   },
   
