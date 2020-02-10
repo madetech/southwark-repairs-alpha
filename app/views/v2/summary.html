@@ -28,7 +28,7 @@
             {{ data['addresses']}}
           </dd>
           <dd class="govuk-summary-list__actions">
-            <a href="/postcode">
+            <a href="/v2//postcode">
               Change
               <span class="govuk-visually-hidden"> contact information</span>
             </a>
@@ -45,9 +45,25 @@
 
           </dd>
           <dd class="govuk-summary-list__actions">
-            <a href="/contact-details">
+            <a href="/v2/contact-details">
               Change
               <span class="govuk-visually-hidden"> contact details</span>
+            </a>
+          </dd>
+        </div>
+
+
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Contact phone number
+          </dt>
+          <dd class="govuk-summary-list__value">
+            {{ data['telephone-number']}}
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            <a href="/v2/contact-details-appointment">
+              Change
+              <span class="govuk-visually-hidden"> phone information</span>
             </a>
           </dd>
         </div>
@@ -101,10 +117,10 @@
             Date
           </dt>
           <dd class="govuk-summary-list__value">
-            <p>{{data['availability']}}, from {{data['availability-time']}}</p>
+            <p>{{data['availability-time']}}</p>
           </dd>
           <dd class="govuk-summary-list__actions">
-            <a href="/v2/repair-type">
+            <a href="/v2/repair-availability">
               Change
               <span class="govuk-visually-hidden"> date information</span>
             </a>
@@ -116,8 +132,6 @@
           </dt>
           <dd class="govuk-summary-list__value">
           
-            <p>{{data['vulnerabilities'] | replace(",", "") | safe}}</p>
-
 
             <p>{{data['access-restrictions'] }}</p>
 

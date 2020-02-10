@@ -5,7 +5,7 @@
 {% endblock %}
 
 {% block beforeContent %}
-  <a class="govuk-back-link" href="/v2/personal-details">Back</a>
+  <a class="govuk-back-link" href="/v2/repair-availability">Back</a>
 {% endblock %}
 
 {% block content %}
@@ -14,17 +14,19 @@
     <div class="govuk-grid-column-two-thirds">
       <form class="form" action="/v2/appointment-playback" method="post">
       <h1 class="govuk-heading-xl">What is your phone number?</h1>
-      <p>We will need your phone number to contact you on the day of your appointment.</p>
+      <p>We will need your phone number to contact you on the day of your appointment. This can be a landline or mobile number.</p>
+      
+      <p>If someone else will be present for the appointment you can enter their phone number instead.</p>
 
-      <div class="govuk-form-group">
+      <div class="govuk-form-group govuk-!-margin-top-9">
       
   <label class="govuk-label" for="telephone-number">
-  
+  <strong>Phone number</strong>
   </label>
     <span id="how-contacted-conditional-hint" class="govuk-hint">
-      For example, 07771 900 900
+      For example, 07771 900 900 or 020 7946 0000
     </span>
-  <input class="govuk-input govuk-input--width-20" id="telephone-number" name="telephone-number" type="tel" aria-describedby="telephone-number-hint" autocomplete="tel">
+  <input class="govuk-input govuk-input--width-20" id="telephone-number" name="telephone-number" value="{{ data['telephone-number']}}" type="tel" aria-describedby="telephone-number-hint" autocomplete="tel">
 </div>
 
         <button class="govuk-button" data-module="govuk-button">Continue</button>
