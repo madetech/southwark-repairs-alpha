@@ -1,0 +1,65 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  Question page
+{% endblock %}
+
+{% block beforeContent %}
+  <a class="govuk-back-link" href="/url/of/previous/page">Back</a>
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-xl">
+        We have received your repair request
+      </h1>
+
+      <p>Thank you for telling us about a problem you’re having. We have received your request. 
+Your reference number is <strong>HDJ2123F</strong>.</p>
+      {% set location = "{{ data['repair-location'] }}" %}
+      {% set description = "{{ data['repair-description'] }}" %}
+      {% set availability = "{{ data['availability-time'] }}" %}
+
+
+      {% if (location == true ) and (description == true) %}
+      <p><strong>Problem location</strong> <br>{{ data['repair-location'] }}</p>
+      <p><strong>Problem description</strong> <br> {{ data['repair-description'] }}</p>
+      <p>We will assess your repair request and will be in touch if we need anymore information about 
+      the issue.</p>
+
+      {% else %}
+
+      <p><strong>[ Repair location ]</strong> and <strong>[ Repair description ]</strong></p>
+
+      {% endif %}
+
+
+
+      <h3 class="govuk-heading-m">Your appointment</h3>
+      {% if availability == false %}
+
+      <p>Your appointment is booked for {{ data['availability-time'] }}. </p>
+      {% else %}
+      <p>Your appointment is booked for <strong>[ appointment date ]</strong> at <strong>[ appointment slot ]</strong>.</p>
+      {% endif %}
+
+      <p>We will text you a two-hour window on the day of your appointment and will let you know when our operative is on the way.</p>
+      <p>We can’t enter the property unless someone over 18 is at home. The same person will need to let us in, be able to show us where the problem is and answer some questions about the problem.</p>
+      <p><a href="#">You can change or cancel your appointment</a> if you need to.</p>
+
+      <h3 class="govuk-heading-m">Who to expect</h3>
+      <p>An operative will visit you at home and may have another colleague with them. We work with many different companies but an operative will have an official identification card either from the council or the company they work for.</p>
+
+      <p>If you are worried about letting the wrong person in you can <a href="#">set up a safe word</a>.</p>
+      
+      <h3 class="govuk-heading-m">Updating your repair request</h3>
+      <p>You can <a href="#">send us more information about your repair request</a> up to a day before your appointment date. If your repair request changes or becomes more complex you may need to book a new appointment slot.</p>
+
+
+    </div>
+  </div>
+
+{% endblock %}
