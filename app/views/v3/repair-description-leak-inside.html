@@ -1,11 +1,11 @@
 {% extends "layout.html" %}
 
 {% block pageTitle %}
-  Repair description - leak
+  Repair description - inside property
 {% endblock %}
 
 {% block beforeContent %}
-  <a class="govuk-back-link" href="/repair-description-leak">Back</a>
+  <a class="govuk-back-link" href="/v3/repair-description-leak-electrics">Back</a>
 {% endblock %}
 
 {% block content %}
@@ -13,38 +13,38 @@
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
 
-      <form class="form" action="repair-description-leak-electrics-answer" method="post">
+      <form class="form" action="/v3/repair-description-leak-source" method="post">
 
 
      {% from "govuk/components/radios/macro.njk" import govukRadios %}
 
     {{ govukRadios({
-      name: "repair-leak-electrics",
+      name: "repair-leak-inside",
       fieldset: {
         legend: {
-          text: "Is the water",
+          text: "Is the water coming from inside your property",
           isPageHeading: true,
           classes: "govuk-fieldset__legend--xl" 
         }
       },
       items: [
         {
-          value: "dripping-on-electrics",
-          text: "dripping onto electrics?",
-          id: "repair-leak-electrics-dripping-on-electrics",
-          checked: checked("repair-leak-electrics", "dripping-on-electrics")
+          value: "yes",
+          text: "Yes",
+          id: "repair-leak-inside-yes",
+          checked: checked("repair-leak-inside", "Yes")
         },
         {
-          value: "containable",
-          text: "containable with a bucket or towel?",
-          id: "repair-leak-electrics-containable",
-          checked: checked("repair-leak-electrics", "containable")
+          value: "no",
+          text: "No, it's coming from outside my property",
+          id: "repair-leak-inside-no",
+          checked: checked("repair-leak-inside", "No")
         },
         {
-          value: "non-containable",
-          text: "not containable?",
-          id: "repair-leak-electrics-not-containable",
-          checked: checked("repair-leak-electrics", "not-containable")
+          value: "unsure",
+          text: "I'm not sure",
+          id: "repair-leak-inside-unsure",
+          checked: checked("repair-leak-inside", "I'm not sure")
         }
         
       ]
@@ -74,12 +74,12 @@
         <h4 class="govuk-heading-s">Repair details</h4>
 
         <p>Location: {{ data["repair-location"] }}</p>
-              <p><a href="/repair-location">
+              <p><a href="/v3/repair-location">
               Change
         <span class="govuk-visually-hidden"> location</span>
         </a><p>
         <p>Issue: {{ data['repair-location-kitchen'] }}</p>
-         <p><a href="/repair-type">
+         <p><a href="/v3/repair-type">
               Change
         <span class="govuk-visually-hidden"> item</span>
         </a><p>

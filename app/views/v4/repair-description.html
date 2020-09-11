@@ -1,0 +1,96 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  Repair description
+{% endblock %}
+
+{% block beforeContent %}
+  <a class="govuk-back-link" href="/v3/repair-type">Back</a>
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-xl">Describe your problem in more detail</h1>
+
+      <p>Please describe:</p>
+      <ul class="govuk-list govuk-list--bullet">
+        <li>the size and location of the problem</li>
+        <li>the source of the problem</li>
+        <li>how long you have been experiencing the problem</li>
+
+      </ul>
+
+      <div class="govuk-inset-text">
+        Please report only one problem at a time. You will have a chance to report another repair after this one.
+      </div>
+
+      <form class="form" action="/v3/personal-details" method="post">
+    
+      <div class="govuk-form-group">
+  <label class="govuk-label" for="more-detail">
+    
+  </label>
+  
+  
+  <textarea class="govuk-textarea" id="more-detail" name="more-detail" rows="5" aria-describedby="more-detail-hint">{{data['more-detail']}}</textarea>
+</div>
+
+
+<div class="govuk-form-group">
+  <label class="govuk-label" for="file-upload-1">
+    Upload a photo 
+  </label>
+  <input class="govuk-file-upload" id="file-upload-1" name="file-upload-1" type="file">
+
+</div>
+
+        <h3 class="govuk-heading-m">Your photo must be:</h3>
+      <ul class="govuk-list govuk-list--bullet">
+        <li>in colour</li>
+        <li>a jpg or jpeg file</li>
+        <li>at least 50KB and no more than 10MB</li>
+
+      </ul>
+        <button class="govuk-button" data-module="govuk-button">Continue</button>
+
+      </form>
+
+
+
+  </div>
+
+
+  <div class="govuk-grid-column-one-third">
+  <div class="govuk-panel govuk-panel--side">
+    <h4 class="govuk-heading-s">Address</h4>
+
+        <p>{{ data['addresses'] }}<br>{{ data['address-postcode'] }}</p>
+
+      
+        <p><a href="postcode">
+              Change
+        <span class="govuk-visually-hidden"> postcode</span>
+        </a><p>
+
+        <hr>
+        <h4 class="govuk-heading-s">Repair details</h4>
+
+        <p>Location: {{ data["repair-location"] }}</p>
+              <p><a href="/v3/repair-location">
+              Change
+        <span class="govuk-visually-hidden"> location</span>
+        </a><p>
+        <p>Issue: {{ data['repair-location-kitchen'] }}</p>
+         <p><a href="/v3/repair-type">
+              Change
+        <span class="govuk-visually-hidden"> item</span>
+        </a><p>
+      </div>
+  </div>
+
+</div>
+
+{% endblock %}

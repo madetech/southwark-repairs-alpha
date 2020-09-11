@@ -1,0 +1,60 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  Question page
+{% endblock %}
+
+{% block beforeContent %}
+  <a class="govuk-back-link" href="/v3/repair-description-damp">Back</a>
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-xl">
+        Fix damp in your home      
+      </h1>
+      <p class="govuk-body">These steps should solve your problem within 3 months:</p>
+      <ul class="govuk-list govuk-list--bullet">
+        <li>adjust your heating to keep all rooms and walls warm</li>
+        <li>reduce air moisture wherever possible</li>
+        <li>ventilate your home as much as possible</li>
+        <li>clean away any signs of mould as soon as it appears</li>
+      </ul>
+
+
+
+      <p class="govuk-body">If you follow the steps above and see no improvement before 31 March 2020, please contact us.
+      </p>
+
+      <p class="govuk-body">Continue if you have followed these steps for 3 months and have not seen an improvement.</a></p>
+      
+      <form class="form" action="/v3/repair-description-damp-pipes" method="post">
+        <button class="govuk-button" data-module="govuk-button">Continue</button>
+      </form>
+    </div>
+
+
+    <div class="govuk-grid-column-one-third">
+      <div class="govuk-panel govuk-panel--side">
+
+      <h4 class="govuk-heading-s">Address</h4>
+          <p>{{ data['addresses'] }}<br>{{ data['address-postcode'] }}</p>
+
+        
+          <p><a href="postcode">
+                Change
+          <span class="govuk-visually-hidden"> postcode</span>
+          </a><p>
+
+      </div>
+    </div>
+
+</div>
+
+
+  </div>
+
+{% endblock %}

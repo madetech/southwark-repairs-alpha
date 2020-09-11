@@ -1,0 +1,60 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  Contact details
+{% endblock %}
+
+{% block beforeContent %}
+  <a class="govuk-back-link" href="/v4/address">Back</a>
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <form class="form" action="/v4/ref-number-detail" method="post">
+
+{% from "govuk/components/radios/macro.njk" import govukRadios %}
+
+{{ govukRadios({
+  idPrefix: "ref-number",
+  name: "ref-number",
+  fieldset: {
+    legend: {
+      text: "Do you have a reference number?",
+      isPageHeading: true,
+      classes: "govuk-fieldset__legend--xl"
+    }
+  },
+  items: [
+    {
+      value: "Yes",
+      text: "Yes",
+      id: "ref-number-yes",
+      checked: checked("ref-number", "Yes")
+    },
+    {
+      value: "No",
+      text: "No",
+      id: "ref-number-no",
+      checked: checked("ref-number", "No")
+    }
+  ]
+}) }}
+                  
+        {% from "govuk/components/details/macro.njk" import govukDetails %}
+
+{{ govukDetails({
+  summaryText: "Where to find your reference number",
+  text: "An 8 digit reference number was provided when the repair was requested online. Depending on the contact details that were submitted, this will have been sent as an email or SMS text message."
+}) }}
+
+
+        <button class="govuk-button" data-module="govuk-button">Continue</button>
+      </form> 
+
+    </div>
+  </div>
+
+{% endblock %}

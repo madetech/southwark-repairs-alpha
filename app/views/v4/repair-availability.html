@@ -1,0 +1,182 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  Choose availability
+{% endblock %}
+
+{% block beforeContent %}
+  <a class="govuk-back-link" href="/v3/personal-details">Back</a>
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-xl">When are you available?</h1>
+
+
+<p class="govuk-body-l">A responsible adult must be home for all of the repair appointment slot and during the repair apppointment.</p>
+<form class="form" action="/v3/contact-details-appointment" method="post">
+
+<h3 class="govuk-heading-m govuk-!-padding-top-4">The earliest appointment slot for this repair is:</h3>
+
+
+<h3 class="govuk-heading-m govuk-!-padding-top-4">14th February 2019</h3>
+
+{% from "govuk/components/radios/macro.njk" import govukRadios %}
+
+
+{{ govukRadios({
+  classes: "govuk-radios--small",
+  idPrefix: "availability-time",
+  name: "availability-time",
+  fieldset: {
+    legend: {
+      text: "Please select a time slot",
+      isPageHeading: true,
+      classes: "govuk-fieldset__legend--s"
+    }
+  },
+  
+  items: [
+    {
+      value: "14th February 2019 at 8:00am to 1:00pm",
+      id: "availability-time-1",
+      text: "8:00am to 12:00pm (Morning)",
+      checked: checked("availability-time", "14th February 2019 at 8:00am to 1:00pm")
+
+    },
+        {
+      value: "14th February 2019 at 12:00pm to 4:00pm",
+      id: "availability-time-2",
+      text: "12:00pm to 4:00pm (Afternoon)",
+      checked: checked("availability-time", "14th February 2019 at 12:00pm to 4:00pm")
+    },
+            {
+      value: "14th February 2019 at 9:30am to 3:00pm",
+      id: "availability-time-3",
+      text: "9:30am to 3:00pm (School run)",
+      checked: checked("availability-time", "14th February 2019 at 9:30am to 3:00pm")
+    },
+        {
+      value: "14th February 2019 at 8:00am to 4:00pm",
+      id: "availability-time-4",
+      text: "8:00am to 4:00pm (All day)",
+      checked: checked("availability", "14th February 2019 at 8:00am to 4:00pm")
+
+    }
+  ]
+}) }}
+
+
+<h3 class="govuk-heading-m govuk-!-padding-top-4">Please select any other dates that you are free:</h3>
+
+<h3 class="govuk-heading-m govuk-!-padding-top-4">17th February 2019</h3>
+
+{{ govukRadios({
+  classes: "govuk-radios--small",
+  idPrefix: "availability-time",
+  name: "availability-time",
+  fieldset: {
+    legend: {
+      text: "Please select a time slot",
+      isPageHeading: true,
+      classes: "govuk-fieldset__legend--s"
+    }
+  },
+  
+  items: [
+    {
+      value: "17th February 2019 at 8:00am to 12:00pm",
+      id: "availability-time-5",
+      text: "8:00am to 12:00pm (Morning)",
+      checked: checked("availability-time", "17th February 2019 at 8:00am to 12:00pm")
+
+    },
+        {
+      value: "17th February 2019 at 12:00pm to 4:00pm",
+      id: "availability-time-6",
+      text: "12:00pm to 4:00pm (Afternoon)",
+      checked: checked("availability-time", "17th February 2019 at 12:00pm to 4:00pm")
+    },
+            {
+      value: "17th February 2019 at 9:30am to 3:00pm",
+      id: "availability-time-7",
+      text: "9:30am to 3:00pm (School run)",
+      checked: checked("availability-time", "17th February 2019 at 9:30am to 3:00pm")
+    },
+        {
+      value: "17th February 2019 at 8:00am to 4:00pm",
+      id: "availability-time-8",
+      text: "8:00am to 4:00pm (All day)",
+      checked: checked("availability", "17th February 2019 at 8:00am to 4:00pm")
+
+    }
+  ]
+}) }}
+
+
+
+<h3 class="govuk-heading-m govuk-!-padding-top-4">18th February 2019</h3>
+
+
+
+{{ govukRadios({
+  classes: "govuk-radios--small",
+  idPrefix: "availability-time",
+  name: "availability-time",
+  fieldset: {
+    legend: {
+      text: "Please select a time slot",
+      isPageHeading: true,
+      classes: "govuk-fieldset__legend--s"
+    }
+  },
+  
+  items: [
+    {
+      value: "18th February 2019 at 8:00am to 12:00pm",
+      id: "availability-time-9",
+      text: "8:00am to 12:00pm (Morning)",
+      checked: checked("availability-time", "18th February 2019 at 8:00am to 12:00pm")
+
+    },
+        {
+      value: "18th February 2019 at 12:00pm to 4:00pm",
+      id: "availability-time-10",
+      text: "12:00pm to 4:00pm (Afternoon)",
+      checked: checked("availability-time", "18th February 2019 at 12:00pm to 4:00pm")
+    },
+            {
+      value: "18th February 2019 at 9:30am to 3:00pm",
+      id: "availability-time-11",
+      text: "9:30am to 3:00pm (School run)",
+      checked: checked("availability-time", "18th February 2019 at 9:30am to 3:00pm")
+    },
+        {
+      value: "18th February 2019 at 8:00am to 4:00pm",
+      id: "availability-time-12",
+      text: "8:00am to 4:00pm (All day)",
+      checked: checked("availability", "18th February 2019 at 8:00am to 4:00pm")
+
+    }
+  ]
+}) }}
+
+{% from "govuk/components/details/macro.njk" import govukDetails %}
+
+{{ govukDetails({
+  summaryText: "Why isn't there an earlier appointment?",
+  text: "We have target times to carry out any repairs that we are responsible for. Based on the information you've provided we aim to fix your repair within four working days."
+}) }}
+
+  <button class="govuk-button" data-module="govuk-button">Continue</button>
+
+      </form>
+
+
+    </div>
+  </div>
+
+{% endblock %}

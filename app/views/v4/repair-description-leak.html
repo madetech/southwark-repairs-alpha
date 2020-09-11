@@ -1,0 +1,108 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  Repair description - leak
+{% endblock %}
+
+{% block beforeContent %}
+  <a class="govuk-back-link" href="/v3/repair-type">Back</a>
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <form class="form" action="/v3/repair-description-leak-answer" method="post">
+
+
+     {% from "govuk/components/radios/macro.njk" import govukRadios %}
+
+    {{ govukRadios({
+      name: "repair-leak",
+      fieldset: {
+        legend: {
+          text: "Is your problem one of these?",
+          isPageHeading: true,
+          classes: "govuk-fieldset__legend--xl" 
+        }
+      },
+      items: [
+        {
+          value: "dripping-from-wall",
+          text: "Water dripping from a wall or ceiling",
+          id: "repair-leak-dripping-from-wall",
+          checked: checked("repair-leak", "dripping from wall")
+        },
+        {
+          value: "leaking-from-sink",
+          text: "Sink is leaking and I can contain the leak with a bucket",
+          id: "repair-leak-leaking-from-sink",
+          checked: checked("repair-leak", "leaking-from-sink")
+        },
+        {
+          value: "tap-dripping-water",
+          text: "Tap is dripping water",
+          id: "repair-leak-tap-dripping-water",
+          checked: checked("repair-leak", "tap-dripping-water")
+        },
+        {
+          value: "tap-broken",
+          text: "Tap won't turn off and water is flowing fast",
+          id: "repair-leak-tap-broken",
+          checked: checked("repair-leak", "tap-broken")
+        },
+        {
+          value: "radiator-leaking",
+          text: "Radiator is leaking and I can contain the leak with a bucket",
+          id: "repair-leak-radiator-leaking",
+          checked: checked("repair-leak", "radiator-leaking")
+        },
+        {
+          value: "something-else",
+          text: "My problem is something else",
+          id: "repair-leak-something-else",
+          checked: checked("repair-leak", "something-else")
+        }
+      ]
+    }) }}
+
+        <button class="govuk-button" data-module="govuk-button">Continue</button>
+
+      </form>
+
+  </div>
+
+
+  <div class="govuk-grid-column-one-third">
+      <div class="govuk-panel govuk-panel--side">
+
+    <h4 class="govuk-heading-s">Address</h4>
+
+        <p>{{ data['addresses'] }}<br>{{ data['address-postcode'] }}</p>
+
+      
+        <p><a href="postcode">
+              Change
+        <span class="govuk-visually-hidden"> postcode</span>
+        </a><p>
+
+         <hr>
+        <h4 class="govuk-heading-s">Repair details</h4>
+
+        <p>Location: {{ data["repair-location"] }}</p>
+              <p><a href="/v3/repair-location">
+              Change
+        <span class="govuk-visually-hidden"> location</span>
+        </a><p>
+        <p>Issue: {{ data['repair-location-kitchen'] }}</p>
+         <p><a href="/v3/repair-type">
+              Change
+        <span class="govuk-visually-hidden"> item</span>
+        </a><p>
+      </div>
+  </div>
+
+</div>
+
+{% endblock %}
