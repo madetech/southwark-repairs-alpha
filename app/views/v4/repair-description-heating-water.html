@@ -1,0 +1,102 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  Repair description - leak
+{% endblock %}
+
+{% block beforeContent %}
+  <a class="govuk-back-link" href="/v4/repair-type">Back</a>
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <form class="form" action="/v4/repair-description-heating-water-answer" method="post">
+
+
+     {% from "govuk/components/radios/macro.njk" import govukRadios %}
+
+    {{ govukRadios({
+      name: "repair-description",
+      fieldset: {
+        legend: {
+          text: "What is the problem?",
+          isPageHeading: true,
+          classes: "govuk-fieldset__legend--xl" 
+        }
+      },
+      items: [
+        {
+          value: "no-heating-or-hot-water",
+          text: "No heating or hot water",
+          id: "repair-heating-water-no-heatingor-hot-water",
+          checked: checked("repair-heating-water", "no-heating-or-hot-water")
+        },
+        {
+          value: "radiator-not-working",
+          text: "Radiator is not working",
+          id: "repair-heating-water-radiator-not-working",
+          checked: checked("repair-heating-water", "radiator-not-working")
+        },
+        {
+          value: "radiator-loose",
+          text: "Radiator is coming loose",
+          id: "repair-heating-water-radiator-loose",
+          checked: checked("repair-heating-water", "radiator-loose")
+        },
+        {
+          value: "radiator-leaking",
+          text: "Radiator is leaking",
+          id: "repair-heating-water-radiator-leaking",
+          checked: checked("repair-heating-water", "radiator-leaking")
+        },
+        {
+          value: "something-else",
+          text: "Something else",
+          id: "repair-heating-water-something-else",
+          checked: checked("repair-heating-water", "something-else")
+        }
+      ]
+    }) }}
+
+        <button class="govuk-button" data-module="govuk-button">Continue</button>
+
+      </form>
+
+  </div>
+
+
+  <div class="govuk-grid-column-one-third">
+      <div class="govuk-panel govuk-panel--side">
+
+    <h4 class="govuk-heading-s">Address</h4>
+
+        <p>{{ data['addresses'] }}<br>{{ data['address-postcode'] }}</p>
+
+      
+        <p><a href="postcode">
+              Change
+        <span class="govuk-visually-hidden"> postcode</span>
+        </a><p>
+
+         <hr>
+        <h4 class="govuk-heading-s">Repair details</h4>
+
+        <p>Location: {{ data["repair-location"] }}</p>
+              <p><a href="/v4/repair-location">
+              Change
+        <span class="govuk-visually-hidden"> location</span>
+        </a><p>
+        <p>Issue: {{ data['repair-location-kitchen'] }}</p>
+         <p><a href="/v4/repair-type">
+              Change
+        <span class="govuk-visually-hidden"> item</span>
+        </a><p>
+      </div>
+  </div>
+
+</div>
+
+{% endblock %}

@@ -1,0 +1,69 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  Prior repair
+{% endblock %}
+
+{% block beforeContent %}
+  <a class="govuk-back-link" href="/v3/priority-list">Back</a>
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <form class="form" action="/v3/prior-repair-answer" method="post">
+
+{% from "govuk/components/radios/macro.njk" import govukRadios %}
+
+{{ govukRadios({
+  idPrefix: "prior-repair",
+  name: "prior-repair",
+  fieldset: {
+    legend: {
+      text: "Have you reported this problem before?",
+      isPageHeading: true,
+      classes: "govuk-fieldset__legend--xl"
+    }
+  },
+  items: [
+    {
+      value: "Yes",
+      text: "Yes",
+      id: "prior-repair-yes",
+      checked: checked("prior-repair", "Yes")
+    },
+    {
+      value: "No",
+      text: "No",
+      id: "prior-repair-no",
+      checked: checked("prior-repair", "No")
+    }
+  ]
+}) }}
+
+
+    <button class="govuk-button" data-module="govuk-button">Continue</button>
+
+    </form>
+
+    </div>
+
+
+  <div class="govuk-grid-column-one-third">
+    <div class="govuk-panel govuk-panel--side">
+    <h4 class="govuk-heading-s">Address</h4>
+        <p>{{ data['addresses'] }}<br>{{ data['address-postcode'] }}</p>
+
+      
+        <p><a href="postcode">
+              Change
+        <span class="govuk-visually-hidden"> postcode</span>
+        </a><p>
+
+
+      </div>
+  </div>
+
+{% endblock %}

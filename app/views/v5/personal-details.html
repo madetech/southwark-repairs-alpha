@@ -1,0 +1,47 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  Personal details - vulnerabilities
+{% endblock %}
+
+{% block beforeContent %}
+  <a class="govuk-back-link" href="/v3/repair-description">Back</a>
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <h1 class="govuk-heading-xl">Booking an appointment</h1>
+
+      <p>Your repair will be assessed and fixed by a trade operative. If your repair is complex, it may need more than one repair appointment. If another appointment is needed, we will arrange it after the first one.</p>
+
+    <h2 class="govuk-heading-m">Before we visit</h2>
+
+      <p class="govuk-body">Before we visit, we need to know if any vulnerable people will be present at the repair appointment, and any information on access restrictions to the property. </p>
+
+      <p>Things we need to know include:</p>
+
+        <ul class="govuk-list govuk-list--bullet">
+          <li>If anyone with a medical condition or mobility difficulties lives in the home.</li>
+          <li>If you are a carer reporting on behalf of someone else.</li>
+          <li>If there are any access restrictions to the property we need to be aware of.</li>
+        </ul>
+
+  <form class="form" action="/v3/repair-availability" method="post">
+
+      <div class="govuk-form-group govuk-!-margin-top-9">
+              <label class="govuk-label" for="more-detail">
+                Enter any information on access restrictions or resident disability
+              </label>
+              <textarea class="govuk-textarea" id="more-detail" name="access-restrictions" rows="5" aria-describedby="more-detail-hint">{{ data["access-restrictions"]}}</textarea>
+        </div>
+
+        <button class="govuk-button" data-module="govuk-button">Continue</button>
+
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}

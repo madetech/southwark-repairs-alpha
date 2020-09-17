@@ -5,7 +5,7 @@
 {% endblock %}
 
 {% block beforeContent %}
-  <a class="govuk-back-link" href="/v3/repair-type">Back</a>
+  <a class="govuk-back-link" href="/v4/repair-type">Back</a>
 {% endblock %}
 
 {% block content %}
@@ -27,7 +27,7 @@
         Please report only one problem at a time. You will have a chance to report another repair after this one.
       </div>
 
-      <form class="form" action="/v3/personal-details" method="post">
+      <form class="form" action="/v4/personal-details" method="post">
     
       <div class="govuk-form-group">
   <label class="govuk-label" for="more-detail">
@@ -79,12 +79,12 @@
         <h4 class="govuk-heading-s">Repair details</h4>
 
         <p>Location: {{ data["repair-location"] }}</p>
-              <p><a href="/v3/repair-location">
+              <p><a href="/v4/repair-location">
               Change
         <span class="govuk-visually-hidden"> location</span>
         </a><p>
         <p>Issue: {{ data['repair-location-kitchen'] }}</p>
-         <p><a href="/v3/repair-type">
+         <p><a href="/v4/repair-type">
               Change
         <span class="govuk-visually-hidden"> item</span>
         </a><p>

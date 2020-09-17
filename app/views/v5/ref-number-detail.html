@@ -1,0 +1,41 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  Repair emergencies
+{% endblock %}
+
+{% block beforeContent %}
+  <a class="govuk-back-link" href="/v5/ref-number">Back</a>
+{% endblock %}
+
+{% block content %}
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-xl">What is your reference number?</h1>
+
+   
+  {% from "govuk/components/input/macro.njk" import govukInput %}
+
+{{ govukInput({
+  label: {
+    text: "Please enter your 8 digital reference"
+  },
+  classes: "govuk-input--width-20",
+  id: "width-20",
+  name: "width-20"
+}) }}
+        
+        {% from "govuk/components/details/macro.njk" import govukDetails %}
+
+{{ govukDetails({
+  summaryText: "Where to find your reference number",
+  text: "An 8 digit reference number was provided when the repair was requested online. Depending on the contact details that were submitted, this will have been sent as an email or SMS text message."
+}) }}
+
+     <button class="govuk-button" data-module="govuk-button">Continue</button>
+
+    </div>
+  </div>
+
+{% endblock %}

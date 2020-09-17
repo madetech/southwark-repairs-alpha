@@ -1,0 +1,35 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  Emergency repair
+{% endblock %}
+
+{% block beforeContent %}
+  <a class="govuk-back-link" href="/v4/repair-description-electrical">Back</a>
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-xl">
+        This repair may be an emergency
+      </h1>
+        
+       <h3 class="govuk-heading-m">
+          What to do if your carbon monoxide (CO) alarm has triggered</h3>
+        
+        <ol class="govuk-list govuk-list--number govuk-list--spaced">
+        <li>Turn off the gas supply at the gas meter.</li>
+        <li>Extinguish all sources of ignition.</li>
+        <li>Do not smoke.</li>
+        <li>Do not operate electrical light switches and power sockets.</li>
+        <li>Do not use the door entry system - if you need to let someone in, go down to the entrance door to open it.</li>
+        <li>Open doors and windows to ventilate the area.</li>
+        <li>Contact National Grid on 0800 111 999 from outside the property.</li>
+        </ol>
+    </div>
+  </div>
+
+{% endblock %}
