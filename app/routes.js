@@ -316,5 +316,15 @@ router.post("/v3/repair-location-answer", function(req, res) {
     }
   });
 
+// Routes for tracking repairs
+
+  // V5: Communal repairs
+   router.post("/v5/communal-or-private-property-answer", function(req, res) {
+    if (req.session.data["communal"] === "yes") {
+      res.redirect("/v5/communal-repair-postcode");
+    } else {
+      res.redirect("/v5/postcode")
+    }
+  });
 
 module.exports = router

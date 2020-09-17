@@ -1,0 +1,60 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  Contact details
+{% endblock %}
+
+{% block beforeContent %}
+  <a class="govuk-back-link" href="/v5/">Back</a>
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <form class="form" action="/v5/communal-or-private-property-answer" method="post">
+
+{% from "govuk/components/radios/macro.njk" import govukRadios %}
+
+{{ govukRadios({
+  idPrefix: "communal",
+  name: "communal",
+  fieldset: {
+    legend: {
+      text: "Is the repair in a communal area?",
+      isPageHeading: true,
+      classes: "govuk-fieldset__legend--xl"
+    }
+  },
+  items: [
+    {
+      value: "yes",
+      text: "Yes",
+      id: "communal-yes",
+      checked: checked("communal", "yes")
+    },
+    {
+      value: "no",
+      text: "No",
+      id: "communal-no",
+      checked: checked("communal", "no")
+    }
+  ]
+}) }}
+                  
+        {% from "govuk/components/details/macro.njk" import govukDetails %}
+
+{{ govukDetails({
+  summaryText: "Which areas are communal?",
+  text: "Communal areas are any spaces that are shared with other residents. For example, this might include gardens, lifts, corridors, or car parks."
+}) }}
+
+
+        <button class="govuk-button" data-module="govuk-button">Continue</button>
+      </form> 
+
+    </div>
+  </div>
+
+{% endblock %}
