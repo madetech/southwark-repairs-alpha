@@ -1,0 +1,62 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  Repair emergencies
+{% endblock %}
+
+{% block beforeContent %}
+  <a class="govuk-back-link" href="/v4/index">Back</a>
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <form class="form" action="/v4/private-or-communal-answer" method="post">
+
+     {% from "govuk/components/radios/macro.njk" import govukRadios %}
+
+    {{ govukRadios({
+      idPrefix: "private-communal",
+      name: "private-communal",
+      fieldset: {
+        legend: {
+          text: "Where is the repair located?",
+          isPageHeading: true,
+          classes: "govuk-fieldset__legend--xl"
+        }
+      },
+      items: [
+        {
+          value: "house",
+          text: "in a house or a flat",
+          id: "house",
+          checked: checked("private-communal", "house")
+        },
+        {
+          value: "communal",
+          text: "in a communal area",
+          id: "communal",
+          checked: checked("private-communal", "communal")
+        }
+      ]
+    }) }}
+          {% from "govuk/components/details/macro.njk" import govukDetails %}
+
+{{ govukDetails({
+  summaryText: "Which areas are communal?",
+  text: "Communal areas are any spaces that are shared with other residents. These may include lifts, staircases, corridors, gardens, playgrounds or car parks."
+}) }}
+
+
+        <button class="govuk-button" data-module="govuk-button">Continue</button>
+
+      </form>
+
+
+
+  </div>
+
+
+
+{% endblock %}

@@ -1,0 +1,34 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  Confirmation
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <div class="govuk-panel govuk-panel--confirmation">
+        <h1 class="govuk-panel__title">Report complete</h1>
+        <div class="govuk-panel__body">
+          Your job number is<br><strong>HDJ2123F</strong>
+        </div>
+      </div>
+
+      <p>We have sent you a <a href="/v4/confirmation-template">confirmation of your request by {{ data['how-contacted']}}</a>.
+      </p>
+
+
+      <h2 class="govuk-heading-m">What happens next</h2>
+      <p>We will be in touch to let you know when the problem has been repaired.</p>
+      
+      <p>You can also track the progress of communal repairs <a href="">here</a>.</p>
+      <p><a href="/v4/index">Report another issue</a></p>
+
+    </div>
+
+
+  </div>
+
+{% endblock %}

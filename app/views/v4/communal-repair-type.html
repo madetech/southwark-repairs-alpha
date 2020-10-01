@@ -1,0 +1,114 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  Repair type
+{% endblock %}
+
+{% block beforeContent %}
+  <a class="govuk-back-link" href="/v4/communal-address-list">Back</a>
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <form class="form" action="/v4/communal-repair-description-answer" method="post">
+
+      {% from "govuk/components/radios/macro.njk" import govukRadios %}
+
+    {{ govukRadios({
+      idPrefix: "communal-repair-description",
+      name: "communal-repair-description",
+      fieldset: {
+        legend: {
+          text: "What needs repairing?",
+          isPageHeading: true,
+          classes: "govuk-fieldset__legend--xl"
+        }
+      },
+      items: [
+                {
+          value: "bollards",
+          text: "Bollards",
+          id: "communal-repair-description-lifts",
+          checked: checked("communal-repair-description", "bollards")
+        },
+          {
+          value: "doors or windows",
+          text: "Doors or windows",
+          id: "communal-repair-description-lifts",
+          checked: checked("communal-repair-description", "doors or windows")
+        },
+          {
+          value: "lifts",
+          text: "Lifts",
+          id: "communal-repair-description-lifts",
+          checked: checked("communal-repair-description", "lifts")
+        },
+        {
+          value: "lights",
+          text: "Lights",
+          id: "communal-repair-description-lifts",
+          checked: checked("communal-repair-description", "lights")
+        },
+        {
+          value: "pavement",
+          text: "Pavement",
+          id: "communal-repair-description-lifts",
+          checked: checked("communal-repair-description", "pavement")
+        },
+        {
+          value: "Green space",
+          text: "Shared gardens or green space",
+          id: "communal-repair-description-lifts",
+          checked: checked("communal-repair-description", "garden")
+        },
+        {
+          value: "Something else",
+          text: "Something else",
+          id: "communal-repair-description-something-sel",
+          checked: checked("communal-repair-description", "Something else")
+        }
+      ]
+    }) }}
+
+
+
+
+        <button class="govuk-button" data-module="govuk-button">Continue</button>
+
+      </form>
+
+</div>
+
+
+
+
+  <div class="govuk-grid-column-one-third">
+    <div class="govuk-panel govuk-panel--side">
+   <h4 class="govuk-heading-s">Location</h4>
+
+        <p>{{ data['communal-addresses'] }}<br>{{ data['address-postcode'] }}</p>
+
+      
+        <p><a href="communal-address">
+              Change
+        <span class="govuk-visually-hidden"> postcode</span>
+        </a><p>
+
+         <hr>
+        <h4 class="govuk-heading-s">Repair details</h4>
+
+        <p>Location: {{ data["private-communal"] }}</p>
+              <p><a href="/v4/private-or-communal-area">
+              Change
+        <span class="govuk-visually-hidden"> location</span>
+        </a><p>
+      
+      </div>
+    </div>
+
+</div>
+
+{% endblock %}

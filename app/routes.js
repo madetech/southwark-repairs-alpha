@@ -1,7 +1,23 @@
 const express = require('express')
 const router = express.Router()
 
+// Route for private or communal area - v4
+router.post("/v4/private-or-communal-answer", function(req, res) {
+    if (req.session.data["private-communal"] === "communal") {
+      res.redirect("/v4/communal-address");
+    } else {
+      res.redirect("/v4/postcode");
+    }
+  });
 
+  // for version 2
+  router.post("/v2/prior-repair-answer", function(req, res) {
+    if (req.session.data["/v2/prior-repair"] === "Yes") {
+      res.redirect("/v2/last-report");
+    } else {
+      res.redirect("/v2/repair-type");
+    }
+  });
 
 
 // Route for following up prior repairs
@@ -326,5 +342,19 @@ router.post("/v3/repair-location-answer", function(req, res) {
       res.redirect("/v5/postcode")
     }
   });
+
+
+//// Routes for communal repair description drilldowns
+
+/// for version 4
+
+    router.post("/v4/communal-repair-description-answer", function(req, res) {
+    if (req.session.data["communal-repair-description"] === "lights") {
+      res.redirect("/v4/communal-repair-description-lights");
+    } else {
+      res.redirect("/v4/communal-repair-description");
+    }
+  });
+
 
 module.exports = router
